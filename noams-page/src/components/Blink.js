@@ -11,10 +11,10 @@ function Blink() {
   }, [isVisible]);
 
   return (
-    <span style={{ visibility: isVisible ? "visible" : "hidden", color: 'red' }}>
-      <strong>
-        Thanks For Coming!
-      </strong>
+    <span
+      style={{ visibility: isVisible ? "visible" : "hidden", color: "red" }}
+    >
+      <strong>Thanks For Coming!</strong>
     </span>
   );
 }
