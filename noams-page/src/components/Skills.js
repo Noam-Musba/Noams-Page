@@ -4,10 +4,11 @@ import TechSkills from "./TechSkills";
 const wrapperStyles = {
   paddingLeft: "100px",
   paddingTop: "10px",
+  paddingBottom: "20px"
 };
 
 const skillsStyles = {
-  width: "1000px",
+  maxWidth: "1000px",
   display: "flex",
   fontSize: "40px",
   paddingLeft: "10px",
@@ -17,8 +18,7 @@ const skillsStyles = {
 };
 
 const listWrapperStyles = {
-  width: "997px",
-  border: "2px solid black",
+  maxWidth: "997px",
   maxHeight: "0",
   transition: "max-height 1s",
   overflow: "hidden"
@@ -43,17 +43,17 @@ function Skills() {
   };
 
   const education = {
-    "Computer Science": "BSC. in Computer Science from the Technion institution",
-    "Data Structures" : "like AVL trees, stacks, Queues, and more, in C++",
-    "Network and Computer Security" : "mainly in Python",
-    "Introduction to Algorithms" : "like BFS, DFS and more"
-  }
-
+    "Computer Science":
+      "BSC. in Computer Science from the Technion institution",
+    "Data Structures": "like AVL trees, stacks, Queues, and more, in C++",
+    "Network and Computer Security": "mainly in Python",
+    "Introduction to Algorithms": "like BFS, DFS and more",
+  };
 
   return (
-    <div>
-
+    <div style={{flex: '4'}}>
       <TechSkills
+        id="technicalSkills"
         skills={techSkills}
         wrapperStyles={wrapperStyles}
         skillsStyles={skillsStyles}
@@ -63,6 +63,7 @@ function Skills() {
         What are Noam's technical skills?
       </TechSkills>
       <TechSkills
+        id="education"
         skills={education}
         wrapperStyles={wrapperStyles}
         skillsStyles={skillsStyles}

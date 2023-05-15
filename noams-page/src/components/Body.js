@@ -1,16 +1,22 @@
 import React from 'react'
 import Skills from './Skills'
+import SignIn from './SignIn'
 
 const bodyStyles = {
   height: '1000px',
-  backgroundColor: 'lightgrey'
+  backgroundColor: 'lightgrey',
+  display: 'flex',
+  flexWrap: 'nowrap'
 }
 
 function Body() {
   return (
-    <div style={bodyStyles}>
+    <main style={bodyStyles}>
       <Skills />
-    </div>
+      <aside style={{flex: '1', border: '1px solid black'}}>
+        <SignIn />
+      </aside>
+    </main>
   )
 }
 

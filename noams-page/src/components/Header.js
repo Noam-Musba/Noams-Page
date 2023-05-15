@@ -24,14 +24,14 @@ const hOneStyle = {
 
 function Header() {
   return (
-    <div style={headerStyles}>
+    <header style={headerStyles}>
       <img src="./../NoamLogo.jpg" alt="Logo" style={logoStyles} />
       <Blink />
       <div style={hOneStyle}>
         <h1>Who is Noam Musba?</h1>
       </div>
       <Visitors />
-    </div>
+    </header>
   );
 }
 
