@@ -12,12 +12,14 @@ function SignIn() {
     inputRef.current.focus();
   }, []);
 
+  const [register, setRegister] = useState("Register here!");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [success, setSuccess] = useState(false);
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,6 +39,7 @@ function SignIn() {
       setPasswordError("the passwords length should be at least 6!");
     } else {
       setSuccess(true);
+      setRegister("Registered!");
       setEmail("");
     }
     setPassword("");
@@ -64,7 +67,7 @@ function SignIn() {
     <React.Fragment>
       <form onSubmit={handlerSubmit}>
         <p>
-          <strong>Register here!</strong>
+          <strong>{register}</strong>
         </p>
         <p>Don't worry, I will not spam you ;)</p>
         <div>
