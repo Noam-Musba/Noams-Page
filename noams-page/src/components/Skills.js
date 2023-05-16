@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TechSkills from "./TechSkills";
+import { pageNameContext } from "../App";
 
 const wrapperStyles = {
   paddingLeft: "100px",
   paddingTop: "10px",
-  paddingBottom: "20px"
+  paddingBottom: "20px",
 };
 
 const skillsStyles = {
@@ -21,7 +22,7 @@ const listWrapperStyles = {
   maxWidth: "997px",
   maxHeight: "0",
   transition: "max-height 1s",
-  overflow: "hidden"
+  overflow: "hidden",
 };
 
 const listStyles = {
@@ -50,8 +51,10 @@ function Skills() {
     "Introduction to Algorithms": "like BFS, DFS and more",
   };
 
+  const firstName = useContext(pageNameContext);
+
   return (
-    <div style={{flex: '4'}}>
+    <div style={{ flex: "4" }}>
       <TechSkills
         id="technicalSkills"
         skills={techSkills}
@@ -60,7 +63,7 @@ function Skills() {
         listWrapperStyles={listWrapperStyles}
         listStyles={listStyles}
       >
-        What are Noam's technical skills?
+        What are {firstName}'s technical skills?
       </TechSkills>
       <TechSkills
         id="education"
@@ -70,7 +73,7 @@ function Skills() {
         listWrapperStyles={listWrapperStyles}
         listStyles={listStyles}
       >
-        what is Noam's education?
+        what is {firstName}'s education?
       </TechSkills>
     </div>
   );

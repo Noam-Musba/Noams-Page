@@ -22,7 +22,9 @@ function Visitors() {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const addVisitor = () => {
-    setCounter(counter + 1);
+    setCounter((prevCount) => {
+      return prevCount + 1;
+    });
     setButtonText("Added!");
     setIsDisabled(true);
   };

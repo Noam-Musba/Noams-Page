@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Blink from "./Blink";
 import Visitors from "./Visitors";
+import { pageNameContext } from "../App";
 
 const headerStyles = {
   display: "flex",
@@ -23,12 +24,13 @@ const hOneStyle = {
 };
 
 function Header() {
+  const firstName = useContext(pageNameContext);
   return (
     <header style={headerStyles}>
       <img src="./../NoamLogo.jpg" alt="Logo" style={logoStyles} />
       <Blink />
       <div style={hOneStyle}>
-        <h1>Who is Noam Musba?</h1>
+        <h1>Who is {firstName} Musba?</h1>
       </div>
       <Visitors />
     </header>
