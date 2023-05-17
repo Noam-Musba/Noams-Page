@@ -6,7 +6,7 @@ import { pageNameContext } from "../App";
 const headerStyles = {
   display: "flex",
   alignItems: "center",
-  backgroundColor: "lightGreen",
+  backgroundColor: "lightGreen"
 };
 
 const logoStyles = {
@@ -18,19 +18,16 @@ const logoStyles = {
 const hOneStyle = {
   flex: "1",
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  //paddingLeft : '200px'
+  paddingLeft : '200px'
 };
 
 function Header() {
-  const firstName = useContext(pageNameContext);
   return (
     <header style={headerStyles}>
       <img src="./../NoamLogo.jpg" alt="Logo" style={logoStyles} />
       <Blink />
       <div style={hOneStyle}>
-        <h1>Who is {firstName} Musba?</h1>
+        <h1>W e l c o m e ! </h1>
       </div>
       <Visitors />
     </header>

@@ -1,13 +1,12 @@
 import React from "react";
-import Skills from "./Skills";
-import SignIn from "./SignIn";
 import Sidebar from "./Sidebar";
+import Main from "./Main";
 
 const bodyStyles = {
-  height: "1000px",
+  height: "300vh",
   backgroundColor: "lightgrey",
   display: "flex",
-  flexWrap: "nowrap",
+  flexWrap: "nowrap"
 };
 
 /**
@@ -19,7 +18,7 @@ const bodyStyles = {
 function Body() {
   return (
     <main style={bodyStyles}>
-      <Skills />
+      <Main />
       <aside style={{ flex: "1", border: "1px solid black" }}>
         <Sidebar />
       </aside>

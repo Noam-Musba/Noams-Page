@@ -14,7 +14,7 @@ function Blink() {
     <span
       style={{ visibility: isVisible ? "visible" : "hidden", color: "red" }}
     >
-      <strong>Thanks For Coming!</strong>
+      <strong>Thanks For Coming! Check my Github page!</strong>
     </span>
   );
 }

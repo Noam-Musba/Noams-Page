@@ -2,7 +2,7 @@ import React from "react";
 
 function FavPok() {
   return (
-    <div style={{paddingTop: '70px'}}>
+    <div style={{paddingTop: '70px', paddingBottom: '30px'}}>
       <h2>Do you want to see and learn about my favorite pokemon?</h2>
       <h3>
         Click{" "}

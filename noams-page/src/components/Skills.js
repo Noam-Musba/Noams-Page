@@ -3,7 +3,7 @@ import TechSkills from "./TechSkills";
 import { pageNameContext } from "../App";
 
 const wrapperStyles = {
-  paddingLeft: "100px",
+  
   paddingTop: "10px",
   paddingBottom: "20px",
 };
@@ -54,7 +54,7 @@ function Skills() {
   const firstName = useContext(pageNameContext);
 
   return (
-    <div style={{ flex: "4" }}>
+    <div>
       <TechSkills
         id="technicalSkills"
         skills={techSkills}
