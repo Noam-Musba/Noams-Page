@@ -2,7 +2,7 @@ import React from "react";
 
 function FunFact() {
   return (
-    <div style={{ padding: "10px" }}>
+    <div style={{ padding: "10px", backgroundColor: 'azure'}}>
       <h2 style={{color: 'blue'}}>Fun Fact!</h2>
       <h3>
         Almost everything that you see on my page, was created in order to
