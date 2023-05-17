@@ -21,20 +21,22 @@ function LikeDislike() {
   const [showLikes, dispatchLikes] = useReducer(reducer, initialLikes);
 
   return (
-    <div style={{ marginTop: "40px", backgroundColor: 'lightsteelblue' }}>
+    <div style={{ marginTop: "40px", backgroundColor: "lightsteelblue" }}>
       <h1>Do you like my horrible design? vote here!</h1>
       <div>
         <span style={{ margin: "20px", backgroundColor: "lightgreen" }}>
           Liked! {showLikes.likes}
         </span>
-        <span style={{ margin: "20px", backgroundColor: 'lightcoral' }}>
+        <span style={{ margin: "20px", backgroundColor: "lightcoral" }}>
           disliked! {showLikes.dislikes}
         </span>
         <span
           style={{
             margin: "20px",
             backgroundColor:
-              showLikes.likes + showLikes.dislikes >= 0 ? "lightgreen" : "lightcoral",
+              showLikes.likes + showLikes.dislikes >= 0
+                ? "lightgreen"
+                : "lightcoral",
           }}
         >
           total: {showLikes.likes + showLikes.dislikes}

@@ -11,7 +11,6 @@ const bodyStyles = {
 
 /**
  * add a check button 
- * add a like/dislike buttons with useReducer
  */
 
 

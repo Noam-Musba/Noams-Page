@@ -51,6 +51,12 @@ function Skills() {
     "Introduction to Algorithms": "like BFS, DFS and more",
   };
 
+  const projects = {
+    1: " ",
+    2: " ",
+    3: " "
+  }
+
   const firstName = useContext(pageNameContext);
 
   return (
@@ -74,6 +80,16 @@ function Skills() {
         listStyles={listStyles}
       >
         what is {firstName}'s education?
+      </TechSkills>
+      <TechSkills
+        id="projects"
+        skills={projects}
+        wrapperStyles={wrapperStyles}
+        skillsStyles={skillsStyles}
+        listWrapperStyles={listWrapperStyles}
+        listStyles={listStyles}
+      >
+        what are {firstName}'s projects?
       </TechSkills>
     </div>
   );
