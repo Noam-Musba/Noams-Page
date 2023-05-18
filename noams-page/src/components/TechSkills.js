@@ -28,4 +28,4 @@ function TechSkills({
   );
 }
 
-export default TechSkills;
+export default React.memo(TechSkills);

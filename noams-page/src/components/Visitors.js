@@ -41,4 +41,4 @@ function Visitors() {
   );
 }
 
-export default Visitors;
+export default React.memo(Visitors);

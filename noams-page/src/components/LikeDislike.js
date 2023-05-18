@@ -70,4 +70,4 @@ function LikeDislike() {
   );
 }
 
-export default LikeDislike;
+export default React.memo(LikeDislike);
