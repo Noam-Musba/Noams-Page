@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import TechSkills from "./TechSkills";
 import { pageNameContext } from "../App";
 
 const wrapperStyles = {
-  
   paddingTop: "10px",
   paddingBottom: "20px",
 };
@@ -51,11 +50,24 @@ function Skills() {
     "Introduction to Algorithms": "like BFS, DFS and more",
   };
 
+  const myGithub = (
+    <a
+      href="https://github.com/noam-musba"
+      title="Noam's github"
+      target="_blank"
+    >
+      github
+    </a>
+  );
+
   const projects = {
-    1: " ",
-    2: " ",
-    3: " "
-  }
+    "Noams Page":
+      "if you read this then you can already see this project! This was created in order to learn React",
+    "Device Tracking":
+      "Researching and implementing device tracking problem on a WIFI network using layer 2 active probing, while using Python",
+    "3D simple unity game":
+      " A simple game using Unity and C# in order to familiarize myself with Unity, to make more advanced games in the future.",
+  };
 
   const firstName = useContext(pageNameContext);
 
@@ -91,6 +103,9 @@ function Skills() {
       >
         what are {firstName}'s projects?
       </TechSkills>
+      <h3 style={{ backgroundColor: "lightgoldenrodyellow" }}>
+        Want to check more of my projects? Check out my {myGithub}!
+      </h3>
     </div>
   );
 }
