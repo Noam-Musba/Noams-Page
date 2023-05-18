@@ -29,7 +29,7 @@ function About() {
         official Diploma :( <br />
         While looking for a job, he (me?) found about React, HTML and CSS, and
         the curiosity <br />
-        made him self learn these subjects, and in the end, create this page!{" "}
+        made him to learn these subjects, and in the end, create this page!{" "}
         <br />
         So, feel free to{" "}
         <em>
