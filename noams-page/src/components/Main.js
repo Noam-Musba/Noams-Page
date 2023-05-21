@@ -2,6 +2,7 @@ import React from 'react'
 import About from './About'
 import Skills from './Skills'
 import LikeDislike from './LikeDislike'
+import Quiz from './Quiz'
 
 function Main() {
   return (
@@ -13,6 +14,7 @@ function Main() {
         <b>useCallback:</b> caches the function instance itself.<br />
         <b>useMemo:</b> invokes the function and caches its result.
       </p>
+      <Quiz />
     </div>
   )
 }
