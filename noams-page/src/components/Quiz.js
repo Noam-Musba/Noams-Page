@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+/** add points? */
 function Quiz() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -14,6 +15,21 @@ function Quiz() {
       question: "Where did Noam travel to?",
       options: ["Madrid", "Paris", "Whole western Europe", "London"],
       answer: 3,
+    },
+    {
+      question: "What is Noam's favorite soccer team?",
+      options: ["Chelsea", "Arsenal", "Manchester United", "Barcelona"],
+      answer: 2,
+    },
+    {
+      question: "What is Noam's favorite NBA team?",
+      options: ["LA Lakers", "Boston Celtics", "Chicago Bulls", "GS Warriors"],
+      answer: 3,
+    },
+    {
+      question: "What is Noam's favorite alcohol drink?",
+      options: ["Whiskey", "Vodka", "Gin", "Rum"],
+      answer: 0,
     },
     /**continue to add questions */
   ];

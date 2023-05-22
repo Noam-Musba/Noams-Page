@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 function Blink() {
   const [isVisible, setIsVisible] = useState(true);
+  const intervalRef = useRef();
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setIsVisible(!isVisible);
     }, 1000);
-    return () => clearInterval(interval);
+    return () => clearInterval(intervalRef.current);
   }, [isVisible]);
 
   return (
-    <span
-      style={{ visibility: isVisible ? "visible" : "hidden", color: "red" }}
-    >
-      <strong>Thanks For Coming! Check my Github page!</strong>
+    <span>
+      <span
+        style={{ visibility: isVisible ? "visible" : "hidden", color: "red" }}
+      >
+        <strong>Thanks For Coming! Check my Github page! </strong>
+      </span>
+      <button
+        style={{ backgroundColor: "lightgreen" }}
+        onClick={() => clearInterval(intervalRef.current)}
+      >
+        Stop blinking
+      </button>
     </span>
   );
 }
