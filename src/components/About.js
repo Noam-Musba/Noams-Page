@@ -11,7 +11,7 @@ function About() {
         play a computer game or reading. <br />
         Also, he is <b>playing the guitar</b>, mainly the electric guitar, for
         more than 13 years. <br />
-        He is a big believer in <b>eating healthy and excercising</b> to
+        He is a big believer in <b>eating healthy and exercising</b> to
         maintain a healthy body and mind. <br />
         After finishing High School with a{" "}
         <em>Diploma majored in Physics and Chemistry</em>,
@@ -23,7 +23,7 @@ function About() {
         <br />
         When he discharged after serving for 3 years, he became a student of{" "}
         <b>Computer Science</b> <br />
-        in the <em>Technion institution</em>. After 4 years, he finished and at
+        in the <em><b>Technion institution</b></em>. After 4 years, he finished and at
         the time of <br />
         writing this 'About', he is still waiting for the ceremony to get the
         official Diploma :( <br />
