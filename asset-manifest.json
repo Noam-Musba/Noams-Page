@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Noams-Page/static/css/main.073c9b0a.css",
-    "main.js": "/Noams-Page/static/js/main.0824fcdc.js",
+    "main.js": "/Noams-Page/static/js/main.f949921e.js",
     "static/js/787.0f74ea05.chunk.js": "/Noams-Page/static/js/787.0f74ea05.chunk.js",
     "index.html": "/Noams-Page/index.html",
     "main.073c9b0a.css.map": "/Noams-Page/static/css/main.073c9b0a.css.map",
-    "main.0824fcdc.js.map": "/Noams-Page/static/js/main.0824fcdc.js.map",
+    "main.f949921e.js.map": "/Noams-Page/static/js/main.f949921e.js.map",
     "787.0f74ea05.chunk.js.map": "/Noams-Page/static/js/787.0f74ea05.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.0824fcdc.js"
+    "static/js/main.f949921e.js"
   ]
 }
