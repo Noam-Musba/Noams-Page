@@ -70,7 +70,7 @@ function Body() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginBottom: "50px"
+            marginBottom: "50px",
           }}
         >
           <div style={toggleSwitch}>
@@ -79,7 +79,7 @@ function Body() {
                 checked
                   ? {
                       ...labelStyle,
-                      transform: "translateX(20px",
+                      transform: "translateX(20px)",
                       backgroundColor: "white",
                     }
                   : labelStyle
@@ -88,7 +88,7 @@ function Body() {
               <input
                 style={
                   checked
-                    ? { ...inputStyle, transform: "translateX(20px" }
+                    ? { ...inputStyle, transform: "translateX(20px)" }
                     : inputStyle
                 }
                 type="checkbox"
