@@ -72,6 +72,7 @@ function Quiz() {
               borderTop: "1px solid black",
               height: "50px",
               paddingTop: "20px",
+              cursor: "pointer",
             }}
             key={index}
             onClick={() => handleChosenOption(index)}
@@ -92,6 +93,7 @@ function Quiz() {
               height: "40px",
               color: "blueviolet",
               backgroundColor: "lavender",
+              cursor: "pointer"
             }}
             onClick={handleNextQuestion}
           >
@@ -103,7 +105,7 @@ function Quiz() {
   };
 
   return (
-    <div style={{ backgroundColor: "lightcyan" }}>
+    <div style={{ backgroundColor: "lightcyan", paddingBottom: "15px" }}>
       <h1>Come try my quiz!</h1>
       {questionNumber < questions.length ? (
         renderQuestion()

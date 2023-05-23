@@ -10,13 +10,16 @@ function Main() {
       <About />
       <Skills />
       <LikeDislike />
-      <p>
-        <b>useCallback:</b> caches the function instance itself.<br />
-        <b>useMemo:</b> invokes the function and caches its result.
-      </p>
       <Quiz />
     </div>
   )
 }
+
+/**
+ * <p>
+        <b>useCallback:</b> caches the function instance itself.<br />
+        <b>useMemo:</b> invokes the function and caches its result.
+      </p>
+ */
 
 export default Main
