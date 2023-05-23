@@ -116,7 +116,7 @@ function SignIn() {
                 cursor: "pointer"
               }}
             >
-              submit
+              Sign Up
             </button>
           </div>
         )}
