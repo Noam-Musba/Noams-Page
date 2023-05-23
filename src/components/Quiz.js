@@ -91,9 +91,11 @@ function Quiz() {
             style={{
               width: "100px",
               height: "40px",
-              color: "blueviolet",
-              backgroundColor: "lavender",
-              cursor: "pointer"
+              color: "white",
+              backgroundColor: "blue",
+              cursor: "pointer",
+              border: "none",
+              borderRadius: "10px"
             }}
             onClick={handleNextQuestion}
           >

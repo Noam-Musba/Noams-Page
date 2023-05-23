@@ -14,6 +14,9 @@ const buttonWrapperStyles = {
 const buttonStyles = {
   width: "55px",
   height: "20px",
+  border: "none",
+  borderRadius: "6px",
+  cursor: "pointer",
 };
 
 function Visitors() {
