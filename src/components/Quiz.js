@@ -107,7 +107,7 @@ function Quiz() {
   };
 
   return (
-    <div style={{ backgroundColor: "lightcyan", paddingBottom: "15px" }}>
+    <div style={{ backgroundColor: "lightblue", paddingBottom: "15px" }}>
       <h1>Come try my quiz!</h1>
       {questionNumber < questions.length ? (
         renderQuestion()

@@ -103,7 +103,7 @@ function Skills() {
       >
         what are {firstName}'s projects?
       </TechSkills>
-      <h1 style={{ backgroundColor: "lightgoldenrodyellow" }}>
+      <h1 style={{ backgroundColor: "lightsalmon" }}>
         Want to check more of my projects? Check out my {myGithub}!
       </h1>
     </div>
