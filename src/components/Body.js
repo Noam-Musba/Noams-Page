@@ -3,10 +3,14 @@ import Sidebar from "./Sidebar";
 import Main from "./Main";
 
 const bodyStyles = {
-  height: "300vh",
-  backgroundColor: "lightgrey",
   display: "flex",
-  flexWrap: "nowrap"
+  flexWrap: "nowrap",
+
+  backgroundColor: "lightgrey",
+  height: "300vh",
+  overflow: "auto",
+  
+  
 };
 
 /**

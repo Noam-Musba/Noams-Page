@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import Blink from "./Blink";
 import Visitors from "./Visitors";
-import { pageNameContext } from "../App";
 
 const headerStyles = {
   display: "flex",
+  flexWrap: "nowrap",
   alignItems: "center",
-  backgroundColor: "lightGreen"
+  backgroundColor: "lightGreen",
+  whiteSpace: "nowrap",
+  overflow: "auto"
 };
 
 const logoStyles = {
