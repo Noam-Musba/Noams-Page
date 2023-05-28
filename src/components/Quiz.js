@@ -4,30 +4,31 @@ import React, { useState } from "react";
 function Quiz() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [score, setScore] = useState(0);
 
   const questions = [
     {
-      question: "What is Noam's favorite music genre?",
+      question: "1. What is Noam's favorite music genre?",
       options: ["Metal", "Pop", "Rap", "Classical"],
       answer: 0,
     },
     {
-      question: "Where did Noam travel to?",
+      question: "2. Where did Noam travel to?",
       options: ["Madrid", "Paris", "Whole western Europe", "London"],
       answer: 3,
     },
     {
-      question: "What is Noam's favorite soccer team?",
+      question: "3. What is Noam's favorite soccer team?",
       options: ["Chelsea", "Arsenal", "Manchester United", "Barcelona"],
       answer: 2,
     },
     {
-      question: "What is Noam's favorite NBA team?",
+      question: "4. What is Noam's favorite NBA team?",
       options: ["LA Lakers", "Boston Celtics", "Chicago Bulls", "GS Warriors"],
       answer: 3,
     },
     {
-      question: "What is Noam's favorite alcohol drink?",
+      question: "5. What is Noam's favorite alcohol drink?",
       options: ["Whiskey", "Vodka", "Gin", "Rum"],
       answer: 0,
     },
@@ -36,6 +37,11 @@ function Quiz() {
 
   const handleChosenOption = (index) => {
     setSelectedAnswer(index);
+    if (questions[questionNumber].answer === index) {
+      setScore((prevScore) => prevScore + 10);
+    } else {
+      setScore((prevScore) => prevScore - 2);
+    }
   };
 
   const handleNextQuestion = () => {
@@ -44,6 +50,7 @@ function Quiz() {
   };
 
   const handleResetQuiz = () => {
+    setScore(0);
     setSelectedAnswer(null);
     setQuestionNumber(0);
   };
@@ -56,7 +63,7 @@ function Quiz() {
         style={{
           border: "3px solid black",
           width: "600px",
-          marginLeft: "230px",
+          marginLeft: "265px",
         }}
       >
         <h2>{question}</h2>
@@ -95,11 +102,11 @@ function Quiz() {
               backgroundColor: "blue",
               cursor: "pointer",
               border: "none",
-              borderRadius: "10px"
+              borderRadius: "10px",
             }}
             onClick={handleNextQuestion}
           >
-            Next
+            {questionNumber === questions.length - 1 ? "Finish" : "next"}
           </button>
         </div>
       </div>
@@ -108,12 +115,21 @@ function Quiz() {
 
   return (
     <div style={{ backgroundColor: "lightblue", paddingBottom: "15px" }}>
-      <h1>Come try my quiz!</h1>
+      <h1>Come try my quiz and check your score!</h1>
+      <h3>On right answer: receive 10 points, on a wrong: -2 points</h3>
       {questionNumber < questions.length ? (
         renderQuestion()
       ) : (
         <div>
           <h2>QUIZ COMPLETED!</h2>
+          <h3>Your final score is: {score}</h3>
+          {score < 50 ? (
+            <h4>Better luck next time!</h4>
+          ) : score > 50 ? (
+            <h4>It is not nice to cheat! ;) </h4>
+          ) : (
+            <h4>Perfect score! Good job!</h4>
+          )}
           <button onClick={handleResetQuiz}>Start Over</button>
         </div>
       )}
