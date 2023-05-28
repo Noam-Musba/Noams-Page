@@ -9,8 +9,7 @@ function FunFact() {
         implement a new thing that Noam just discovered!{" "}
       </h3>
       <p>
-        Funnily enough though, this section was created only to tell you that, but no
-        new subject was learned here.
+        Funnily enough though, this section was created only to tell you that ;)
       </p>
     </div>
   );
