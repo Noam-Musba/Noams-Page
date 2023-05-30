@@ -8,7 +8,7 @@ const bodyStyles = {
 
   backgroundColor: "white",
 
-  height: "300vh",
+  height: "400vh",
   overflow: "auto",
 };
 
