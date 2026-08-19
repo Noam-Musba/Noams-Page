@@ -1,4 +1,4 @@
-import React from "react";
+import type { CSSProperties } from "react";
 import Blink from "./Blink";
 import Visitors from "./Visitors";
 
@@ -8,26 +8,30 @@ const headerStyles = {
   alignItems: "center",
   backgroundColor: "lightGreen",
   whiteSpace: "nowrap",
-  overflow: "auto"
-};
+  overflow: "auto",
+} satisfies CSSProperties;
 
 const logoStyles = {
   width: "50px",
   height: "50px",
   marginRight: "30px",
-  objectFit: "contain"
-};
+  objectFit: "contain",
+} satisfies CSSProperties;
 
 const hOneStyle = {
   flex: "1",
   display: "flex",
-  paddingLeft : '200px'
-};
+  paddingLeft: "200px",
+} satisfies CSSProperties;
 
 function Header() {
   return (
     <header style={headerStyles}>
-      <img src="https://www.topsound.fi/images/watermarked/1/detailed/33/blackjack_atx_c-7_fr_absn_1.jpg" alt="Logo" style={logoStyles} />
+      <img
+        src="https://www.topsound.fi/images/watermarked/1/detailed/33/blackjack_atx_c-7_fr_absn_1.jpg"
+        alt="Logo"
+        style={logoStyles}
+      />
       <Blink />
       <div style={hOneStyle}>
         <h1>W e l c o m e ! </h1>

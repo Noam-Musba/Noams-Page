@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import { memo, useState } from "react";
+import type { CSSProperties } from "react";
 
 const visitorsStyles = {
   display: "flex",
   alignItems: "center",
   //paddingLeft: '200px'
-};
+} satisfies CSSProperties;
 
 const buttonWrapperStyles = {
   paddingLeft: "20px",
   paddingRight: "10px",
-};
+} satisfies CSSProperties;
 
 const buttonStyles = {
   width: "55px",
@@ -17,7 +18,7 @@ const buttonStyles = {
   border: "none",
   borderRadius: "6px",
   cursor: "pointer",
-};
+} satisfies CSSProperties;
 
 function Visitors() {
   const [counter, setCounter] = useState(0);
@@ -44,4 +45,4 @@ function Visitors() {
   );
 }
 
-export default React.memo(Visitors);
+export default memo(Visitors);

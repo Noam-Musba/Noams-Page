@@ -1,5 +1,3 @@
-import React from "react";
-
 function FavPok() {
   return (
     <div style={{ paddingTop: "70px", paddingBottom: "30px" }}>
@@ -12,14 +10,14 @@ function FavPok() {
           href="https://www.pokemon.com/us/pokedex/espeon"
           title="go see the cute espeon!"
           target="_blank"
+          rel="noreferrer"
         >
           <img
             style={{ maxWidth: "8%" }}
             src="https://e7.pngegg.com/pngimages/607/890/png-clipart-pokeball-pokeball-thumbnail.png"
             alt="pokeball"
           />
-        </a>
-        {" "}
+        </a>{" "}
         to see it!
       </h3>
     </div>

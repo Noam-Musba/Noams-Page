@@ -1,43 +1,54 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
+type QuizQuestion = {
+  question: string;
+  options: readonly string[];
+  answer: number;
+};
+
+const questions = [
+  {
+    question: "1. What is Noam's favorite music genre?",
+    options: ["Metal", "Pop", "Rap", "Classical"],
+    answer: 0,
+  },
+  {
+    question: "2. Where did Noam travel to?",
+    options: ["Madrid", "Paris", "Whole western Europe", "London"],
+    answer: 3,
+  },
+  {
+    question: "3. What is Noam's favorite soccer team?",
+    options: ["Chelsea", "Arsenal", "Manchester United", "Barcelona"],
+    answer: 2,
+  },
+  {
+    question: "4. What is Noam's favorite NBA team?",
+    options: ["LA Lakers", "Boston Celtics", "Chicago Bulls", "GS Warriors"],
+    answer: 3,
+  },
+  {
+    question: "5. What is Noam's favorite alcohol drink?",
+    options: ["Whiskey", "Vodka", "Gin", "Rum"],
+    answer: 0,
+  },
+] satisfies readonly QuizQuestion[];
 
 /** add points? */
 function Quiz() {
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [score, setScore] = useState(0);
 
-  const questions = [
-    {
-      question: "1. What is Noam's favorite music genre?",
-      options: ["Metal", "Pop", "Rap", "Classical"],
-      answer: 0,
-    },
-    {
-      question: "2. Where did Noam travel to?",
-      options: ["Madrid", "Paris", "Whole western Europe", "London"],
-      answer: 3,
-    },
-    {
-      question: "3. What is Noam's favorite soccer team?",
-      options: ["Chelsea", "Arsenal", "Manchester United", "Barcelona"],
-      answer: 2,
-    },
-    {
-      question: "4. What is Noam's favorite NBA team?",
-      options: ["LA Lakers", "Boston Celtics", "Chicago Bulls", "GS Warriors"],
-      answer: 3,
-    },
-    {
-      question: "5. What is Noam's favorite alcohol drink?",
-      options: ["Whiskey", "Vodka", "Gin", "Rum"],
-      answer: 0,
-    },
-    /**continue to add questions */
-  ];
+  const handleChosenOption = (index: number) => {
+    const currentQuestion = questions[questionNumber];
 
-  const handleChosenOption = (index) => {
+    if (!currentQuestion) {
+      return;
+    }
+
     setSelectedAnswer(index);
-    if (questions[questionNumber].answer === index) {
+    if (currentQuestion.answer === index) {
       setScore((prevScore) => prevScore + 10);
     } else {
       setScore((prevScore) => prevScore - 2);
@@ -56,7 +67,13 @@ function Quiz() {
   };
 
   const renderQuestion = () => {
-    const { question, options, answer } = questions[questionNumber];
+    const currentQuestion = questions[questionNumber];
+
+    if (!currentQuestion) {
+      return null;
+    }
+
+    const { question, options, answer } = currentQuestion;
 
     return (
       <div
@@ -82,7 +99,9 @@ function Quiz() {
               cursor: "pointer",
             }}
             key={index}
-            onClick={() => handleChosenOption(index)}
+            onClick={() => {
+              handleChosenOption(index);
+            }}
           >
             {option}
           </div>

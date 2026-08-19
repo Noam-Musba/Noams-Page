@@ -1,19 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { FormEvent } from "react";
 
-const validateEmail = (email) => {
+const validateEmail = (email: string) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 };
 
 function SignIn() {
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    if (!success) {
-      inputRef.current.focus();
-    }
-  }, []);
-
+  const inputRef = useRef<HTMLInputElement>(null);
   const [register, setRegister] = useState("Register here!");
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
@@ -23,7 +17,11 @@ function SignIn() {
   const [passwordError, setPasswordError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const handlerSubmit = (event) => {
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const handlerSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setUsernameError("");
     setEmailError("");
@@ -60,7 +58,7 @@ function SignIn() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <form onSubmit={handlerSubmit}>
         <p>
           <strong>{register}</strong>
@@ -68,7 +66,7 @@ function SignIn() {
         <p>Don't worry, I will not spam you ;)</p>
 
         {success ? (
-          success && <h2>Submitted successfully! Hello {username}!</h2>
+          <h2>Submitted successfully! Hello {username}!</h2>
         ) : (
           <div>
             <div>
@@ -77,7 +75,9 @@ function SignIn() {
                 type="text"
                 value={username}
                 ref={inputRef}
-                onChange={(event) => setUsername(event.target.value)}
+                onChange={(event) => {
+                  setUsername(event.target.value);
+                }}
               />
               {usernameError && (
                 <div style={{ color: "red" }}>{usernameError}</div>
@@ -88,7 +88,9 @@ function SignIn() {
               <input
                 type="text"
                 value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
               />
               {emailError && <div style={{ color: "red" }}>{emailError}</div>}
             </div>
@@ -97,7 +99,9 @@ function SignIn() {
               <input
                 type="password"
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
               />
               {passwordError && (
                 <div style={{ color: "red" }}>{passwordError}</div>
@@ -113,7 +117,7 @@ function SignIn() {
                 borderRadius: "6px",
                 fontSize: "20px",
                 padding: "10px 16px",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               Sign Up
@@ -121,7 +125,7 @@ function SignIn() {
           </div>
         )}
       </form>
-    </React.Fragment>
+    </>
   );
 }
 

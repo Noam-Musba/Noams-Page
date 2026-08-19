@@ -23,5 +23,16 @@ This is a frontend portfolio refactor, not a rewrite. Work only on the currently
 
 - Read [docs/REFACTOR_PLAN.md](docs/REFACTOR_PLAN.md) for the agreed PR sequence, scope, and guardrails.
 - Read [docs/ENGINEERING_DECISIONS.md](docs/ENGINEERING_DECISIONS.md) for locked product and engineering decisions.
+- Read [docs/QUALITY_BASELINE.md](docs/QUALITY_BASELINE.md) for intentionally visible temporary quality findings.
 
-When validation scripts are introduced, this file should be updated with the required completion commands.
+## Required validation
+
+Before considering an implementation task complete, run:
+
+```bash
+npm run lint
+npm run format:check
+npm run typecheck
+npm test
+npm run build
+```
