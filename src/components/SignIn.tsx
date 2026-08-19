@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { FormEvent } from "react";
+import type { SubmitEvent } from "react";
 
 const validateEmail = (email: string) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,7 +21,7 @@ function SignIn() {
     inputRef.current?.focus();
   }, []);
 
-  const handlerSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handlerSubmit = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     setUsernameError("");
     setEmailError("");
