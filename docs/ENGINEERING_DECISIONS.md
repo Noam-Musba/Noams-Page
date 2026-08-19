@@ -75,5 +75,6 @@ This document records decisions already agreed for the portfolio refactor. Chang
 - Do not generate a PR description automatically when implementation is completed.
 - Generate a PR description only when explicitly requested after review, and base it on the final reviewed diff rather than the original plan.
 - When requested, suggest a PR title and concisely cover what changed, why it changed, important decisions, validation, and relevant limitations or follow-up work.
+- Return requested PR descriptions as copy-ready raw Markdown so GitHub formatting syntax is preserved.
 - Do not commit, push, create a pull request, or deploy unless explicitly requested.
 - Do not start a later PR automatically after completing the requested PR.

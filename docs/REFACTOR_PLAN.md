@@ -215,4 +215,5 @@ For every PR:
 9. Do not generate a PR description when implementation is initially completed. Allow the project owner to review the changes and request revisions first.
 10. Generate a PR description only when explicitly requested, using the final reviewed diff rather than the original plan. Also suggest an appropriate PR title.
 11. Keep a requested PR description concise while covering what changed, why it changed, important implementation or engineering decisions, validation, and relevant limitations or follow-up work.
-12. Do not commit, push, deploy, or create a pull request unless explicitly requested.
+12. Return a requested PR description as raw Markdown in a fenced `markdown` block so it can be copied directly into GitHub while preserving headings, lists, emphasis, and inline code.
+13. Do not commit, push, deploy, or create a pull request unless explicitly requested.
