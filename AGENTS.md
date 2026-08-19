@@ -15,6 +15,8 @@ This is a frontend portfolio refactor, not a rewrite. Work only on the currently
 - Never hide, suppress, or misrepresent warnings and failures merely to make validation pass.
 - Explain significant architectural decisions before implementing them.
 - After implementation, summarize what changed, what was validated, and any remaining concerns.
+- For each PR-sized task, suggest a concise kebab-case branch name, but do not create or switch branches unless explicitly requested.
+- Do not draft a PR description unless explicitly requested after review; then base it on the final reviewed diff and include a suggested title.
 - Do not commit, push, create a pull request, or deploy unless explicitly requested.
 
 ## Project context

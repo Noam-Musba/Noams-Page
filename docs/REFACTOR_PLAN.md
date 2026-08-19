@@ -210,4 +210,9 @@ For every PR:
 4. Keep unrelated changes out of the diff.
 5. Run the validation available at that stage and report failures honestly.
 6. Summarize changes, validation, and remaining concerns after implementation.
-7. Do not commit, push, deploy, or create a pull request unless explicitly requested.
+7. Suggest a concise kebab-case branch name that reflects the PR's purpose. Use an appropriate prefix such as `chore/`, `refactor/`, or `feat/` when useful.
+8. Do not create or switch branches unless explicitly requested.
+9. Do not generate a PR description when implementation is initially completed. Allow the project owner to review the changes and request revisions first.
+10. Generate a PR description only when explicitly requested, using the final reviewed diff rather than the original plan. Also suggest an appropriate PR title.
+11. Keep a requested PR description concise while covering what changed, why it changed, important implementation or engineering decisions, validation, and relevant limitations or follow-up work.
+12. Do not commit, push, deploy, or create a pull request unless explicitly requested.
