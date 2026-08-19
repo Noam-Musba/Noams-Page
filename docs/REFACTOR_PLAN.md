@@ -79,6 +79,27 @@ This work is an incremental refactor, not a rewrite. Implement only the PR curre
 
 **Dependencies:** PR 2.
 
+### PR 3A — React 19 upgrade
+
+**Purpose:** Upgrade React independently after the project has type safety and automated quality checks.
+
+**Scope:**
+
+- Upgrade to React 18.3 first and review its React 19 migration warnings.
+- Upgrade React, React DOM, and their TypeScript types to the latest stable React 19 release available at implementation time.
+- Review the official React 19 upgrade guidance and address applicable runtime, JSX, and type changes.
+- Verify dependency compatibility and preserve existing application behavior.
+- Run the PR 3 typecheck, lint, test, build, and browser validation against the upgraded application.
+
+**Guardrails:**
+
+- Keep the React major upgrade separate from the TypeScript conversion and product restructuring.
+- Do not adopt new React 19 features, React Compiler, Server Components, or architectural patterns without a demonstrated project need.
+- Do not apply codemods without reviewing their changes.
+- Do not include content, styling, or unrelated component refactors.
+
+**Dependencies:** PR 3.
+
 ### PR 4 — Product and content architecture
 
 **Purpose:** Make the new site communicate Noam's professional identity clearly within seconds.
@@ -106,7 +127,7 @@ This work is an incremental refactor, not a rewrite. Implement only the PR curre
 - Do not invent professional history, project details, links, or assets; wait for owner-provided content.
 - Removal applies only to the new site. The archived legacy snapshot remains unchanged.
 
-**Dependencies:** PR 3 and the required content from the project owner.
+**Dependencies:** PR 3A and the required content from the project owner.
 
 ### PR 5 — Semantic and accessible UI
 
