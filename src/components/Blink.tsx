@@ -1,14 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Blink() {
   const [isVisible, setIsVisible] = useState(true);
-  const intervalRef = useRef();
+  const intervalRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
+    const intervalId = window.setInterval(() => {
       setIsVisible(!isVisible);
     }, 1000);
-    return () => clearInterval(intervalRef.current);
+    intervalRef.current = intervalId;
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
   }, [isVisible]);
 
   return (
@@ -20,7 +24,11 @@ function Blink() {
       </span>
       <button
         style={{ backgroundColor: "lightgreen" }}
-        onClick={() => clearInterval(intervalRef.current)}
+        onClick={() => {
+          if (intervalRef.current !== undefined) {
+            window.clearInterval(intervalRef.current);
+          }
+        }}
       >
         Stop blinking
       </button>

@@ -1,18 +1,17 @@
-import React from 'react'
-import About from './About'
-import Skills from './Skills'
-import LikeDislike from './LikeDislike'
-import Quiz from './Quiz'
+import About from "./About";
+import Skills from "./Skills";
+import LikeDislike from "./LikeDislike";
+import Quiz from "./Quiz";
 
 function Main() {
   return (
-    <div style={{flex: '4', paddingLeft: "100px",}}>
+    <div style={{ flex: "4", paddingLeft: "100px" }}>
       <About />
       <Skills />
       <LikeDislike />
       <Quiz />
     </div>
-  )
+  );
 }
 
 /**
@@ -22,4 +21,4 @@ function Main() {
       </p>
  */
 
-export default Main
+export default Main;

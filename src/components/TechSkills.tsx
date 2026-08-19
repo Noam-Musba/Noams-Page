@@ -1,4 +1,14 @@
-import React, { useState } from "react";
+import { memo, useState } from "react";
+import type { CSSProperties, ReactNode } from "react";
+
+type TechSkillsProps = {
+  skills: Readonly<Record<string, string>>;
+  wrapperStyles: CSSProperties;
+  skillsStyles: CSSProperties;
+  listWrapperStyles: CSSProperties;
+  listStyles: CSSProperties;
+  children: ReactNode;
+};
 
 function TechSkills({
   skills,
@@ -6,8 +16,8 @@ function TechSkills({
   skillsStyles,
   listWrapperStyles,
   listStyles,
-  children
-}) {
+  children,
+}: TechSkillsProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const techSkillsList = Object.entries(skills).map(([key, skill]) => (
@@ -18,7 +28,12 @@ function TechSkills({
 
   return (
     <div style={wrapperStyles}>
-      <button style={skillsStyles} onClick={() => setIsOpen(!isOpen)}>
+      <button
+        style={skillsStyles}
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
         {children}
       </button>
       <div style={{ ...listWrapperStyles, maxHeight: isOpen ? "500px" : "0" }}>
@@ -28,4 +43,4 @@ function TechSkills({
   );
 }
 
-export default React.memo(TechSkills);
+export default memo(TechSkills);

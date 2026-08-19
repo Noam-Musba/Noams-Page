@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import type { CSSProperties } from "react";
 import TechSkills from "./TechSkills";
-import { pageNameContext } from "../App";
+
+type PortfolioItems = Readonly<Record<string, string>>;
 
 const wrapperStyles = {
   paddingTop: "10px",
   paddingBottom: "20px",
-};
+} satisfies CSSProperties;
 
 const skillsStyles = {
   maxWidth: "1000px",
@@ -15,23 +16,23 @@ const skillsStyles = {
   backgroundColor: "lightgrey",
   cursor: "pointer",
   objectFit: "contain",
-};
+} satisfies CSSProperties;
 
 const listWrapperStyles = {
   maxWidth: "997px",
   maxHeight: "0",
   transition: "max-height 1s",
   overflow: "hidden",
-};
+} satisfies CSSProperties;
 
 const listStyles = {
   borderBottom: "1px solid grey",
   padding: "5px",
   transition: "1s",
-};
+} satisfies CSSProperties;
 
 function Skills() {
-  const techSkills = {
+  const techSkills: PortfolioItems = {
     "C++": "mainly from my degree",
     Python: "combination of self-studying and from my degree",
     HTML: "self-studying",
@@ -42,7 +43,7 @@ function Skills() {
     Wireshark: "from my final project",
   };
 
-  const education = {
+  const education: PortfolioItems = {
     "Computer Science":
       "BSC. in Computer Science from the Technion institution",
     "Data Structures": "like AVL trees, stacks, Queues, and more, in C++",
@@ -55,12 +56,13 @@ function Skills() {
       href="https://github.com/noam-musba"
       title="Noam's github"
       target="_blank"
+      rel="noreferrer"
     >
       github
     </a>
   );
 
-  const projects = {
+  const projects: PortfolioItems = {
     "Noams Page":
       "if you read this then you can already see this project! This was created in order to learn React",
     "Device Tracking":
@@ -69,12 +71,11 @@ function Skills() {
       " A simple game using Unity and C# in order to familiarize myself with Unity, to make more advanced games in the future.",
   };
 
-  const firstName = useContext(pageNameContext);
+  const firstName = "Noam";
 
   return (
     <div>
       <TechSkills
-        id="technicalSkills"
         skills={techSkills}
         wrapperStyles={wrapperStyles}
         skillsStyles={skillsStyles}
@@ -84,7 +85,6 @@ function Skills() {
         What are {firstName}'s technical skills?
       </TechSkills>
       <TechSkills
-        id="education"
         skills={education}
         wrapperStyles={wrapperStyles}
         skillsStyles={skillsStyles}
@@ -94,7 +94,6 @@ function Skills() {
         what is {firstName}'s education?
       </TechSkills>
       <TechSkills
-        id="projects"
         skills={projects}
         wrapperStyles={wrapperStyles}
         skillsStyles={skillsStyles}

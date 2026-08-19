@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import type { CSSProperties } from "react";
 import Sidebar from "./Sidebar";
 import Main from "./Main";
 
@@ -10,7 +11,7 @@ const bodyStyles = {
 
   height: "400vh",
   overflow: "auto",
-};
+} satisfies CSSProperties;
 
 const toggleSwitch = {
   margin: "10px",
@@ -19,13 +20,13 @@ const toggleSwitch = {
   height: "20px",
   backgroundColor: "#ccc",
   borderRadius: "10px",
-};
+} satisfies CSSProperties;
 
 const inputStyle = {
   opacity: "0",
   width: "0",
   height: "0",
-};
+} satisfies CSSProperties;
 
 const labelStyle = {
   position: "absolute",
@@ -36,7 +37,7 @@ const labelStyle = {
   backgroundColor: "black",
   borderRadius: "50%",
   transition: "transform 0.2s ease-in-out",
-};
+} satisfies CSSProperties;
 
 /**
  * add a check button

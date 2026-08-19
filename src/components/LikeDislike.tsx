@@ -1,11 +1,21 @@
-import React, { useReducer } from "react";
+import { memo, useReducer } from "react";
 
-const initialLikes = {
+type VoteState = {
+  likes: number;
+  dislikes: number;
+};
+
+type VoteAction = {
+  type: "like" | "dislike";
+  value: number;
+};
+
+const initialLikes: VoteState = {
   likes: 0,
   dislikes: 0,
 };
 
-const reducer = (prevState, buttonAction) => {
+const reducer = (prevState: VoteState, buttonAction: VoteAction): VoteState => {
   switch (buttonAction.type) {
     case "like":
       return { ...prevState, likes: prevState.likes + buttonAction.value };
@@ -14,6 +24,8 @@ const reducer = (prevState, buttonAction) => {
         ...prevState,
         dislikes: prevState.dislikes + buttonAction.value,
       };
+    default:
+      return prevState;
   }
 };
 
@@ -44,25 +56,33 @@ function LikeDislike() {
       </div>
       <button
         style={{ margin: "20px" }}
-        onClick={() => dispatchLikes({ type: "like", value: 5 })}
+        onClick={() => {
+          dispatchLikes({ type: "like", value: 5 });
+        }}
       >
         Omega like!
       </button>
       <button
         style={{ margin: "20px" }}
-        onClick={() => dispatchLikes({ type: "like", value: 1 })}
+        onClick={() => {
+          dispatchLikes({ type: "like", value: 1 });
+        }}
       >
         like!
       </button>
       <button
         style={{ margin: "20px" }}
-        onClick={() => dispatchLikes({ type: "dislike", value: -1 })}
+        onClick={() => {
+          dispatchLikes({ type: "dislike", value: -1 });
+        }}
       >
         dislike!
       </button>
       <button
         style={{ margin: "20px" }}
-        onClick={() => dispatchLikes({ type: "dislike", value: -5 })}
+        onClick={() => {
+          dispatchLikes({ type: "dislike", value: -5 });
+        }}
       >
         Ewwww!
       </button>
@@ -70,4 +90,4 @@ function LikeDislike() {
   );
 }
 
-export default React.memo(LikeDislike);
+export default memo(LikeDislike);
