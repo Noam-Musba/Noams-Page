@@ -9,6 +9,31 @@ function Header() {
         features and owning developer tooling, quality, observability, and
         deployment automation.
       </p>
+      <nav aria-label="Primary">
+        <ul>
+          <li>
+            <a href="#experience">Experience</a>
+          </li>
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#engineering-highlights">Engineering highlights</a>
+          </li>
+          <li>
+            <a href="#background">Background</a>
+          </li>
+          <li>
+            <a href="#about">About me</a>
+          </li>
+          <li>
+            <a href="#quiz">Quiz</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }

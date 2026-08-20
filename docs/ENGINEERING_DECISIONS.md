@@ -40,6 +40,8 @@ This document records decisions already agreed for the portfolio refactor. Chang
 - Target modern evergreen browsers.
 - Use CSS Modules for component and section styles.
 - Keep global CSS limited to shared custom properties, design tokens, reset rules, and document-level base styles.
+- Add CSS rules only when they solve a demonstrated current need. Do not add defensive styling for hypothetical future layouts or interactions when a simpler solution is sufficient.
+- Avoid `!important` by resolving styling through scoping, source order, or appropriate specificity. Use it only when an unavoidable cascade requirement can be explained concretely.
 - Keep application state local by default.
 - Do not add a router unless genuine first-class pages emerge.
 - Do not add a global state library without a demonstrated need.

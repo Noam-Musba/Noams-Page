@@ -10,6 +10,26 @@
   background-color: #171717;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: #111111;
+  background-color: #ffffff;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px #111111;
+}
+
 .site-header,
 .site-main,
 .site-footer,
@@ -59,4 +79,8 @@
   padding-top: 2rem;
   padding-bottom: 3rem;
   border-top: 1px solid currentColor;
+}
+
+.site-footer address {
+  font-style: normal;
 }

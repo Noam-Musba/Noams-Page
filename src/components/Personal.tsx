@@ -1,6 +1,6 @@
 function Personal() {
   return (
-    <section className="portfolio-section">
+    <section id="about" className="portfolio-section">
       <h2>A little more about me</h2>
       <p>
         Outside of work, I play electric guitar, enjoy computer games, and make

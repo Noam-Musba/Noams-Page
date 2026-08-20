@@ -6,6 +6,8 @@ This is a frontend portfolio refactor, not a rewrite. Work only on the currently
 
 - Preserve existing behavior unless the current PR explicitly changes it.
 - Prefer simple, maintainable solutions over abstraction for its own sake.
+- Add CSS rules only for demonstrated current needs; avoid speculative styling and use the simplest defensible solution.
+- Avoid `!important`; solve cascade problems through scoping, source order, or appropriate specificity. Any exception requires a concrete explanation.
 - Do not introduce dependencies without explaining the concrete need.
 - Do not add a router, global state library, backend, or application framework unless explicitly approved.
 - The new site is professional-first while retaining some personality.

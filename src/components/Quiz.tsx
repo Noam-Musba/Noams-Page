@@ -83,9 +83,11 @@ function Quiz() {
           marginLeft: "265px",
         }}
       >
-        <h2>{question}</h2>
+        <h3>{question}</h3>
         {options.map((option, index) => (
-          <div
+          <button
+            type="button"
+            aria-pressed={index === selectedAnswer}
             style={{
               backgroundColor:
                 index === selectedAnswer
@@ -95,16 +97,17 @@ function Quiz() {
                   : "initial",
               borderTop: "1px solid black",
               height: "50px",
-              paddingTop: "20px",
+              width: "100%",
               cursor: "pointer",
+              textAlign: "left",
             }}
-            key={index}
+            key={option}
             onClick={() => {
               handleChosenOption(index);
             }}
           >
             {option}
-          </div>
+          </button>
         ))}
         <div
           style={{
@@ -114,6 +117,7 @@ function Quiz() {
           }}
         >
           <button
+            type="button"
             style={{
               width: "100px",
               height: "40px",
@@ -125,7 +129,9 @@ function Quiz() {
             }}
             onClick={handleNextQuestion}
           >
-            {questionNumber === questions.length - 1 ? "Finish" : "next"}
+            {questionNumber === questions.length - 1
+              ? "Finish quiz"
+              : "Next question"}
           </button>
         </div>
       </div>
@@ -134,25 +140,28 @@ function Quiz() {
 
   return (
     <section
+      id="quiz"
       className="portfolio-section"
       style={{ backgroundColor: "lightblue", paddingBottom: "15px" }}
     >
       <h2>Come try my quiz and check your score!</h2>
-      <h3>On right answer: receive 10 points, on a wrong: -2 points</h3>
+      <p>On a right answer: receive 10 points; on a wrong answer: lose 2.</p>
       {questionNumber < questions.length ? (
         renderQuestion()
       ) : (
         <div>
-          <h2>QUIZ COMPLETED!</h2>
-          <h3>Your final score is: {score}</h3>
+          <h3>Quiz completed!</h3>
+          <p>Your final score is: {score}</p>
           {score < 50 ? (
-            <h4>Better luck next time!</h4>
+            <p>Better luck next time!</p>
           ) : score > 50 ? (
-            <h4>It is not nice to cheat! ;) </h4>
+            <p>It is not nice to cheat! ;)</p>
           ) : (
-            <h4>Perfect score! Good job!</h4>
+            <p>Perfect score! Good job!</p>
           )}
-          <button onClick={handleResetQuiz}>Start Over</button>
+          <button type="button" onClick={handleResetQuiz}>
+            Restart quiz
+          </button>
         </div>
       )}
     </section>
