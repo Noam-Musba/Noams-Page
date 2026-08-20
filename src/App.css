@@ -1,3 +1,62 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
+  color: #202124;
+  background-color: #ffffff;
+  line-height: 1.5;
+}
+
+.App--dark {
+  color: #f5f5f5;
+  background-color: #171717;
+}
+
+.site-header,
+.site-main,
+.site-footer,
+.theme-control {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.site-header {
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+.site-header h1,
+.site-header p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.theme-control {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.theme-control input {
+  margin-right: 0.5rem;
+}
+
+.portfolio-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid currentColor;
+}
+
+.portfolio-section h2 {
+  margin-top: 0;
+}
+
+.engineering-highlight + .engineering-highlight,
+.skill-group + .skill-group {
+  margin-top: 1.5rem;
+}
+
+.site-footer {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid currentColor;
 }

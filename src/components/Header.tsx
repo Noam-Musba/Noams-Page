@@ -1,42 +1,14 @@
-import type { CSSProperties } from "react";
-import Blink from "./Blink";
-import Visitors from "./Visitors";
-
-const headerStyles = {
-  display: "flex",
-  flexWrap: "nowrap",
-  alignItems: "center",
-  backgroundColor: "lightGreen",
-  whiteSpace: "nowrap",
-  overflow: "auto",
-} satisfies CSSProperties;
-
-const logoStyles = {
-  width: "50px",
-  height: "50px",
-  marginRight: "30px",
-  objectFit: "contain",
-} satisfies CSSProperties;
-
-const hOneStyle = {
-  flex: "1",
-  display: "flex",
-  paddingLeft: "200px",
-} satisfies CSSProperties;
-
 function Header() {
   return (
-    <header style={headerStyles}>
-      <img
-        src="https://www.topsound.fi/images/watermarked/1/detailed/33/blackjack_atx_c-7_fr_absn_1.jpg"
-        alt="Logo"
-        style={logoStyles}
-      />
-      <Blink />
-      <div style={hOneStyle}>
-        <h1>W e l c o m e ! </h1>
-      </div>
-      <Visitors />
+    <header className="site-header">
+      <p>Software Engineer</p>
+      <h1>Noam Musba</h1>
+      <p>Frontend-focused · React · TypeScript</p>
+      <p>
+        Software engineer with three years of experience building product
+        features and owning developer tooling, quality, observability, and
+        deployment automation.
+      </p>
     </header>
   );
 }
