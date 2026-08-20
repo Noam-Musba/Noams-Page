@@ -133,8 +133,11 @@ function Quiz() {
   };
 
   return (
-    <div style={{ backgroundColor: "lightblue", paddingBottom: "15px" }}>
-      <h1>Come try my quiz and check your score!</h1>
+    <section
+      className="portfolio-section"
+      style={{ backgroundColor: "lightblue", paddingBottom: "15px" }}
+    >
+      <h2>Come try my quiz and check your score!</h2>
       <h3>On right answer: receive 10 points, on a wrong: -2 points</h3>
       {questionNumber < questions.length ? (
         renderQuestion()
@@ -152,7 +155,7 @@ function Quiz() {
           <button onClick={handleResetQuiz}>Start Over</button>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
