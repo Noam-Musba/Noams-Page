@@ -71,7 +71,7 @@ This document records decisions already agreed for the portfolio refactor. Chang
 - Keep mechanical, behavioral, product, and visual changes separate when combining them would obscure review.
 - After implementation, summarize what changed, what was validated, and any remaining concerns.
 - For each PR-sized task, suggest a concise kebab-case branch name that reflects its purpose, using a prefix such as `chore/`, `refactor/`, or `feat/` when useful.
-- Do not create or switch branches unless explicitly requested.
+- Create or switch to the proposed branch once the previous PR is merged and the working tree is clean. Never switch branches with uncommitted changes.
 - Do not generate a PR description automatically when implementation is completed.
 - Generate a PR description only when explicitly requested after review, and base it on the final reviewed diff rather than the original plan.
 - When requested, suggest a PR title and concisely cover what changed, why it changed, important decisions, validation, and relevant limitations or follow-up work.

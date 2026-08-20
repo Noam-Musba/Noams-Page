@@ -15,7 +15,7 @@ This is a frontend portfolio refactor, not a rewrite. Work only on the currently
 - Never hide, suppress, or misrepresent warnings and failures merely to make validation pass.
 - Explain significant architectural decisions before implementing them.
 - After implementation, summarize what changed, what was validated, and any remaining concerns.
-- For each PR-sized task, suggest a concise kebab-case branch name, but do not create or switch branches unless explicitly requested.
+- For each PR-sized task, suggest a concise kebab-case branch name and create or switch to it once the previous PR is merged and the working tree is clean. Never switch branches with uncommitted changes.
 - Do not draft a PR description unless explicitly requested after review; then base it on the final reviewed diff, include a suggested title, and return the description as copy-ready raw Markdown.
 - Do not commit, push, create a pull request, or deploy unless explicitly requested.
 
@@ -23,7 +23,6 @@ This is a frontend portfolio refactor, not a rewrite. Work only on the currently
 
 - Read [docs/REFACTOR_PLAN.md](docs/REFACTOR_PLAN.md) for the agreed PR sequence, scope, and guardrails.
 - Read [docs/ENGINEERING_DECISIONS.md](docs/ENGINEERING_DECISIONS.md) for locked product and engineering decisions.
-- Read [docs/QUALITY_BASELINE.md](docs/QUALITY_BASELINE.md) for intentionally visible temporary quality findings.
 
 ## Required validation
 
