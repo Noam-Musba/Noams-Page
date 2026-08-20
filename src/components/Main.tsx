@@ -7,7 +7,7 @@ import Quiz from "./Quiz";
 
 function Main() {
   return (
-    <main className="site-main">
+    <main id="main-content" className="site-main" tabIndex={-1}>
       <Experience />
       <Skills />
       <EngineeringHighlights />

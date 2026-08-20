@@ -2,17 +2,17 @@ import { skillGroups } from "../data/portfolio";
 
 function Skills() {
   return (
-    <section className="portfolio-section">
+    <section id="skills" className="portfolio-section">
       <h2>Skills</h2>
       {skillGroups.map((group) => (
-        <div className="skill-group" key={group.name}>
+        <section className="skill-group" key={group.name}>
           <h3>{group.name}</h3>
           <ul>
             {group.skills.map((skill) => (
               <li key={skill}>{skill}</li>
             ))}
           </ul>
-        </div>
+        </section>
       ))}
     </section>
   );

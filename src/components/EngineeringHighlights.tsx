@@ -2,7 +2,7 @@ import { engineeringHighlights } from "../data/portfolio";
 
 function EngineeringHighlights() {
   return (
-    <section className="portfolio-section">
+    <section id="engineering-highlights" className="portfolio-section">
       <h2>Engineering highlights</h2>
       {engineeringHighlights.map((highlight) => (
         <article className="engineering-highlight" key={highlight.title}>

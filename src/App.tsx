@@ -9,6 +9,9 @@ function App() {
 
   return (
     <div className={`App${isDarkMode ? " App--dark" : ""}`}>
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <Header />
       <div className="theme-control">
         <label>

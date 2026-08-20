@@ -1,6 +1,6 @@
 function Background() {
   return (
-    <section className="portfolio-section">
+    <section id="background" className="portfolio-section">
       <h2>Background</h2>
 
       <h3>Education</h3>

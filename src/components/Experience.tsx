@@ -1,6 +1,6 @@
 function Experience() {
   return (
-    <section className="portfolio-section">
+    <section id="experience" className="portfolio-section">
       <h2>Professional experience</h2>
       <article>
         <h3>Software Engineer · Wix / Dazl</h3>
