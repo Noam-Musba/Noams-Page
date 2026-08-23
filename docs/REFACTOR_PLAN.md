@@ -153,29 +153,67 @@ This work is an incremental refactor, not a rewrite. Implement only the PR curre
 
 **Dependencies:** PR 4.
 
-### PR 6 — Responsive design and dark mode
+### PR 6A — CSS architecture
 
-**Purpose:** Create the visual foundation and make the portfolio work across modern viewport sizes.
+**Purpose:** Give styles clear ownership before changing the visual design.
 
 **Scope:**
 
-- Use CSS Modules for component and section styles.
-- Keep global CSS limited to shared custom properties, design tokens, reset rules, and document-level base styles.
-- Establish typography, spacing, color, width, and elevation decisions.
-- Remove active inline styling and arbitrary fixed viewport heights.
-- Implement a mobile-first responsive layout.
+- Move component and section styles into CSS Modules.
+- Keep global CSS limited to document-level reset and base styles.
+- Add small shared layout and section modules for genuinely repeated rules.
+- Replace active inline styles with equivalent module classes.
+
+**Guardrails:**
+
+- Preserve the current appearance, responsive behavior, and theme behavior as closely as practical.
+- Do not introduce the visual redesign, new breakpoints, or persistent theme state.
+- Do not introduce a styling framework, component library, or new dependency.
+
+**Dependencies:** PR 5.
+
+### PR 6B — Responsive visual design
+
+**Purpose:** Create a restrained professional visual foundation that works across modern viewport sizes.
+
+**Scope:**
+
+- Establish the light-theme typography, spacing, color, width, and elevation decisions.
+- Implement the professional-first visual design using the CSS Module boundaries from PR 6A.
+- Replace arbitrary fixed sizing with a mobile-first responsive layout.
 - Add content-driven breakpoints and eliminate horizontal page scrolling.
-- Implement accessible dark mode using system preference, an explicit user control, persistence, and verified contrast.
 - Add deliberate focus, hover, active, and reduced-motion styles.
 - Verify representative mobile, tablet, and desktop layouts.
 
 **Guardrails:**
 
-- Do not introduce a heavyweight styling framework or component library without separate approval and a concrete need.
-- Build a restrained portfolio design foundation, not an elaborate design system.
+- Keep this PR light-theme only; do not add theme state or persistence.
+- Build a focused portfolio design foundation, not an elaborate design system.
 - Do not add decorative complexity at the expense of clarity or performance.
+- Do not change quiz behavior.
 
-**Dependencies:** PR 5.
+**Dependencies:** PR 6A.
+
+### PR 6C — Dark mode
+
+**Purpose:** Add predictable, accessible theming independently of the responsive redesign.
+
+**Scope:**
+
+- Follow the visitor's system color preference by default.
+- Provide an explicit light/dark theme control and persist the user's choice.
+- Add dark-theme values to the semantic design tokens established in PR 6B.
+- Synchronize the browser theme-color metadata.
+- Verify contrast, system preference, persisted preference, and keyboard operation.
+- Add focused tests for theme behavior and persistence.
+
+**Guardrails:**
+
+- Do not redesign components beyond adjustments required for dark-theme contrast.
+- Do not change quiz behavior or add unrelated interaction work.
+- Keep theme state local and do not add a state-management dependency.
+
+**Dependencies:** PR 6B.
 
 ### PR 7 — Interactive components and tests
 
@@ -197,7 +235,7 @@ This work is an incremental refactor, not a rewrite. Implement only the PR curre
 - Do not restore removed learning-demo features.
 - Do not include unrelated content or visual changes.
 
-**Dependencies:** PR 6.
+**Dependencies:** PR 6C.
 
 ### PR 8 — Final polish and project narrative
 

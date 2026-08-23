@@ -1,6 +1,9 @@
+import layoutStyles from "../styles/Layout.module.css";
+import styles from "./Header.module.css";
+
 function Header() {
   return (
-    <header className="site-header">
+    <header className={[layoutStyles.container, styles.header].join(" ")}>
       <p>Software Engineer</p>
       <h1>Noam Musba</h1>
       <p>Frontend-focused · React · TypeScript</p>

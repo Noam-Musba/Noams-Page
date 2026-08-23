@@ -1,4 +1,6 @@
 import { useState } from "react";
+import sectionStyles from "../styles/Section.module.css";
+import styles from "./Quiz.module.css";
 
 type QuizQuestion = {
   question: string;
@@ -76,31 +78,22 @@ function Quiz() {
     const { question, options, answer } = currentQuestion;
 
     return (
-      <div
-        style={{
-          border: "3px solid black",
-          width: "600px",
-          marginLeft: "265px",
-        }}
-      >
+      <div className={styles.question}>
         <h3>{question}</h3>
         {options.map((option, index) => (
           <button
             type="button"
             aria-pressed={index === selectedAnswer}
-            style={{
-              backgroundColor:
-                index === selectedAnswer
-                  ? selectedAnswer === answer
-                    ? "green"
-                    : "red"
-                  : "initial",
-              borderTop: "1px solid black",
-              height: "50px",
-              width: "100%",
-              cursor: "pointer",
-              textAlign: "left",
-            }}
+            className={[
+              styles.option,
+              index === selectedAnswer
+                ? selectedAnswer === answer
+                  ? styles.correct
+                  : styles.incorrect
+                : null,
+            ]
+              .filter(Boolean)
+              .join(" ")}
             key={option}
             onClick={() => {
               handleChosenOption(index);
@@ -109,24 +102,10 @@ function Quiz() {
             {option}
           </button>
         ))}
-        <div
-          style={{
-            borderTop: "1px solid black",
-            height: "50px",
-            paddingTop: "20px",
-          }}
-        >
+        <div className={styles.actions}>
           <button
             type="button"
-            style={{
-              width: "100px",
-              height: "40px",
-              color: "white",
-              backgroundColor: "blue",
-              cursor: "pointer",
-              border: "none",
-              borderRadius: "10px",
-            }}
+            className={styles.nextButton}
             onClick={handleNextQuestion}
           >
             {questionNumber === questions.length - 1
@@ -141,8 +120,7 @@ function Quiz() {
   return (
     <section
       id="quiz"
-      className="portfolio-section"
-      style={{ backgroundColor: "lightblue", paddingBottom: "15px" }}
+      className={[sectionStyles.section, styles.section].join(" ")}
     >
       <h2>Come try my quiz and check your score!</h2>
       <p>On a right answer: receive 10 points; on a wrong answer: lose 2.</p>

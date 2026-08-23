@@ -1,8 +1,14 @@
+import layoutStyles from "../styles/Layout.module.css";
+import styles from "./Contact.module.css";
+
 function Contact() {
   const legacyUrl = `${import.meta.env.BASE_URL}legacy/`;
 
   return (
-    <footer id="contact" className="site-footer">
+    <footer
+      id="contact"
+      className={[layoutStyles.container, styles.footer].join(" ")}
+    >
       <h2>Contact</h2>
       <address>
         <p>Herzliya, Israel</p>

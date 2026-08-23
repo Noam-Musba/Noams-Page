@@ -1,0 +1,9 @@
+.footer {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid currentColor;
+}
+
+.footer address {
+  font-style: normal;
+}

@@ -1,6 +1,8 @@
+import sectionStyles from "../styles/Section.module.css";
+
 function Personal() {
   return (
-    <section id="about" className="portfolio-section">
+    <section id="about" className={sectionStyles.section}>
       <h2>A little more about me</h2>
       <p>
         Outside of work, I play electric guitar, enjoy computer games, and make
