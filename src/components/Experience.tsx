@@ -1,6 +1,8 @@
+import sectionStyles from "../styles/Section.module.css";
+
 function Experience() {
   return (
-    <section id="experience" className="portfolio-section">
+    <section id="experience" className={sectionStyles.section}>
       <h2>Professional experience</h2>
       <article>
         <h3>Software Engineer · Wix / Dazl</h3>
