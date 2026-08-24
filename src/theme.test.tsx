@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import App from "./App";
 
@@ -114,19 +115,21 @@ describe("theme", () => {
     expect(localStorage.getItem(STORAGE_KEY)).toBe("dark");
   });
 
-  it("toggles between themes and persists each choice", () => {
+  it("toggles between themes with the keyboard and persists each choice", async () => {
+    const user = userEvent.setup();
     mockSystemTheme("light");
     render(<App />);
 
     const themeControl = screen.getByRole("checkbox", { name: "Dark mode" });
+    themeControl.focus();
 
-    fireEvent.click(themeControl);
+    await user.keyboard("[Space]");
 
     expect(themeControl).toBeChecked();
     expect(localStorage.getItem(STORAGE_KEY)).toBe("dark");
     expect(document.documentElement).toHaveAttribute("data-theme", "dark");
 
-    fireEvent.click(themeControl);
+    await user.keyboard("[Space]");
 
     expect(themeControl).not.toBeChecked();
     expect(localStorage.getItem(STORAGE_KEY)).toBe("light");
