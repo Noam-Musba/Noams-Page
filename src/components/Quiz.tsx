@@ -78,34 +78,38 @@ function Quiz() {
     const { question, options, answer } = currentQuestion;
 
     return (
-      <div className={styles.question}>
-        <h3>{question}</h3>
-        {options.map((option, index) => (
-          <button
-            type="button"
-            aria-pressed={index === selectedAnswer}
-            className={[
-              styles.option,
-              index === selectedAnswer
-                ? selectedAnswer === answer
-                  ? styles.correct
-                  : styles.incorrect
-                : null,
-            ]
-              .filter(Boolean)
-              .join(" ")}
-            key={option}
-            onClick={() => {
-              handleChosenOption(index);
-            }}
-          >
-            {option}
-          </button>
-        ))}
+      <div className={styles.questionCard}>
+        <h3 className={styles.questionHeading}>{question}</h3>
+        <div className={styles.options}>
+          {options.map((option, index) => {
+            const isSelected = index === selectedAnswer;
+            const stateClassName = isSelected
+              ? index === answer
+                ? styles.correct
+                : styles.incorrect
+              : "";
+
+            return (
+              <button
+                type="button"
+                aria-pressed={isSelected}
+                className={[styles.option, stateClassName]
+                  .filter(Boolean)
+                  .join(" ")}
+                key={option}
+                onClick={() => {
+                  handleChosenOption(index);
+                }}
+              >
+                {option}
+              </button>
+            );
+          })}
+        </div>
         <div className={styles.actions}>
           <button
             type="button"
-            className={styles.nextButton}
+            className={styles.primaryButton}
             onClick={handleNextQuestion}
           >
             {questionNumber === questions.length - 1
@@ -120,24 +124,28 @@ function Quiz() {
   return (
     <section
       id="quiz"
-      className={[sectionStyles.section, styles.section].join(" ")}
+      className={[sectionStyles.section, styles.quiz].join(" ")}
     >
       <h2>Come try my quiz and check your score!</h2>
       <p>On a right answer: receive 10 points; on a wrong answer: lose 2.</p>
       {questionNumber < questions.length ? (
         renderQuestion()
       ) : (
-        <div>
-          <h3>Quiz completed!</h3>
-          <p>Your final score is: {score}</p>
+        <div className={styles.completed}>
+          <h3 className={styles.completedHeading}>Quiz completed!</h3>
+          <p className={styles.completedText}>Your final score is: {score}</p>
           {score < 50 ? (
-            <p>Better luck next time!</p>
+            <p className={styles.completedText}>Better luck next time!</p>
           ) : score > 50 ? (
-            <p>It is not nice to cheat! ;)</p>
+            <p className={styles.completedText}>It is not nice to cheat! ;)</p>
           ) : (
-            <p>Perfect score! Good job!</p>
+            <p className={styles.completedText}>Perfect score! Good job!</p>
           )}
-          <button type="button" onClick={handleResetQuiz}>
+          <button
+            type="button"
+            className={[styles.primaryButton, styles.restartButton].join(" ")}
+            onClick={handleResetQuiz}
+          >
             Restart quiz
           </button>
         </div>

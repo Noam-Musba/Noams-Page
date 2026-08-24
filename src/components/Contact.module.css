@@ -1,9 +1,65 @@
 .footer {
-  padding-top: 2rem;
-  padding-bottom: 3rem;
-  border-top: 1px solid currentColor;
+  padding-block: clamp(3.5rem, 8vw, 5rem);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
 }
 
-.footer address {
+.content {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.heading {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  letter-spacing: -0.025em;
+}
+
+.address {
   font-style: normal;
+}
+
+.location {
+  margin: 0 0 1rem;
+  color: var(--color-text-muted);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contactLink,
+.legacyLink {
+  font-weight: 700;
+}
+
+.legacy {
+  margin: 0;
+}
+
+.legacyLink {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  text-decoration: none;
+}
+
+.legacyLink:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+@media (min-width: 48rem) {
+  .content {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
 }

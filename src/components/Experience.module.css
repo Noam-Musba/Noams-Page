@@ -1,0 +1,44 @@
+.role {
+  max-width: 58rem;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-card);
+}
+
+.roleHeading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.roleTitle,
+.period {
+  margin: 0;
+}
+
+.roleTitle {
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+}
+
+.period {
+  padding: 0.25rem 0.65rem;
+  color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.description {
+  max-width: var(--text-width);
+  margin-block: 0.75rem;
+}
+
+.description:last-child {
+  margin-bottom: 0;
+}

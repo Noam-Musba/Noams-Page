@@ -6,16 +6,20 @@ function Skills() {
   return (
     <section id="skills" className={sectionStyles.section}>
       <h2>Skills</h2>
-      {skillGroups.map((group) => (
-        <section className={styles.group} key={group.name}>
-          <h3>{group.name}</h3>
-          <ul>
-            {group.skills.map((skill) => (
-              <li key={skill}>{skill}</li>
-            ))}
-          </ul>
-        </section>
-      ))}
+      <div className={styles.grid}>
+        {skillGroups.map((group) => (
+          <section className={styles.group} key={group.name}>
+            <h3 className={styles.groupHeading}>{group.name}</h3>
+            <ul className={styles.skillList}>
+              {group.skills.map((skill) => (
+                <li className={styles.skill} key={skill}>
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
     </section>
   );
 }
