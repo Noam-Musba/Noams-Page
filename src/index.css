@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light dark;
+
   font-family:
     ui-sans-serif,
     system-ui,
@@ -7,26 +9,34 @@
     "Segoe UI",
     sans-serif;
 
-  --color-background: #f6f7fb;
-  --color-surface: #ffffff;
-  --color-surface-muted: #eef0f7;
-  --color-text: #171923;
-  --color-text-muted: #5b6070;
-  --color-border: #d8dbe6;
-  --color-accent: #5145cd;
-  --color-accent-hover: #3f35aa;
-  --color-accent-soft: #eceafd;
-  --color-on-accent: #ffffff;
-  --color-success: #16714b;
-  --color-error: #aa352d;
-  --color-on-status: #ffffff;
-  --color-focus: #4338ca;
-  --shadow-card: 0 1rem 2.5rem rgb(23 25 35 / 8%);
+  --color-background: light-dark(#f6f7fb, #0e1118);
+  --color-surface: light-dark(#ffffff, #171b24);
+  --color-surface-muted: light-dark(#eef0f7, #202632);
+  --color-text: light-dark(#171923, #f3f4f7);
+  --color-text-muted: light-dark(#5b6070, #b4b9c5);
+  --color-border: light-dark(#d8dbe6, #343b49);
+  --color-accent: light-dark(#5145cd, #a99cf7);
+  --color-accent-hover: light-dark(#3f35aa, #c1b8ff);
+  --color-accent-soft: light-dark(#eceafd, #27243d);
+  --color-on-accent: light-dark(#ffffff, #17122e);
+  --color-success: light-dark(#16714b, #56c792);
+  --color-error: light-dark(#aa352d, #ff928a);
+  --color-on-status: light-dark(#ffffff, #10131a);
+  --color-focus: light-dark(#4338ca, #b6aaff);
+  --shadow-card: 0 1rem 2.5rem light-dark(rgb(23 25 35 / 8%), rgb(0 0 0 / 28%));
   --content-width: 72rem;
   --text-width: 46rem;
   --page-gutter: clamp(1.25rem, 4vw, 2.5rem);
   --radius-small: 0.6rem;
   --radius-medium: 1rem;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 *,
