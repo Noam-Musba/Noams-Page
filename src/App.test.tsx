@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import App from "./App";
 
@@ -25,7 +26,8 @@ describe("App", () => {
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
   });
 
-  it("renders engineering highlights and the retained quiz", () => {
+  it("renders engineering highlights and an interactive quiz", async () => {
+    const user = userEvent.setup();
     render(<App />);
 
     expect(
@@ -33,12 +35,14 @@ describe("App", () => {
     ).toBeVisible();
     expect(
       screen.getByRole("heading", {
-        name: "1. What is Noam's favorite music genre?",
+        name: "What is Noam's favorite music genre?",
       }),
     ).toBeVisible();
-    expect(screen.getByRole("button", { name: "Metal" })).toHaveAttribute(
-      "aria-pressed",
-      "false",
+
+    await user.click(screen.getByRole("button", { name: "Metal" }));
+
+    expect(screen.getByRole("status")).toHaveTextContent(
+      "Correct! 10 points added.",
     );
   });
 
