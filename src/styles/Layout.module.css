@@ -1,6 +1,5 @@
 .container {
-  max-width: 72rem;
-  margin: 0 auto;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  max-width: calc(var(--content-width) + (2 * var(--page-gutter)));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
 }

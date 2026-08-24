@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.item {
+  padding: 1.35rem 0 0;
+  border-top: 3px solid var(--color-accent);
+}
+
+.itemHeading {
+  margin-bottom: 0.65rem;
+  font-size: 1rem;
+}
+
+.itemDescription {
+  margin: 0;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}

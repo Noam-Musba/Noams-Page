@@ -1,34 +1,15 @@
-.app {
-  min-height: 100vh;
-  color: #202124;
-  background-color: #ffffff;
-  line-height: 1.5;
-}
-
-.appDark {
-  color: #f5f5f5;
-  background-color: #171717;
-}
-
 .skipLink {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  color: #111111;
-  background-color: #ffffff;
+  padding: 0.55rem 0.8rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
   transform: translateY(-200%);
 }
 
 .skipLink:focus {
   transform: translateY(0);
-}
-
-.themeControl {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.themeControl input {
-  margin-right: 0.5rem;
 }

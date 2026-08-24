@@ -3,40 +3,65 @@ import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <header className={[layoutStyles.container, styles.header].join(" ")}>
-      <p>Software Engineer</p>
-      <h1>Noam Musba</h1>
-      <p>Frontend-focused · React · TypeScript</p>
-      <p>
-        Software engineer with three years of experience building product
-        features and owning developer tooling, quality, observability, and
-        deployment automation.
-      </p>
-      <nav aria-label="Primary">
-        <ul>
-          <li>
-            <a href="#experience">Experience</a>
-          </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#engineering-highlights">Engineering highlights</a>
-          </li>
-          <li>
-            <a href="#background">Background</a>
-          </li>
-          <li>
-            <a href="#about">About me</a>
-          </li>
-          <li>
-            <a href="#quiz">Quiz</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
+    <header className={styles.header}>
+      <div className={layoutStyles.container}>
+        <div className={styles.topBar}>
+          <nav aria-label="Primary">
+            <ul className={styles.navigationList}>
+              <li>
+                <a className={styles.navigationLink} href="#experience">
+                  Experience
+                </a>
+              </li>
+              <li>
+                <a className={styles.navigationLink} href="#skills">
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a
+                  className={styles.navigationLink}
+                  href="#engineering-highlights"
+                >
+                  Engineering highlights
+                </a>
+              </li>
+              <li>
+                <a className={styles.navigationLink} href="#background">
+                  Background
+                </a>
+              </li>
+              <li>
+                <a className={styles.navigationLink} href="#about">
+                  About me
+                </a>
+              </li>
+              <li>
+                <a className={styles.navigationLink} href="#quiz">
+                  Quiz
+                </a>
+              </li>
+              <li>
+                <a className={styles.navigationLink} href="#contact">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div className={styles.hero}>
+          <p className={styles.eyebrow}>Software Engineer</p>
+          <h1 className={styles.name}>Noam Musba</h1>
+          <p className={styles.specialty}>
+            Frontend-focused · React · TypeScript
+          </p>
+          <p className={styles.introduction}>
+            Software engineer with three years of experience building product
+            features and owning developer tooling, quality, observability, and
+            deployment automation.
+          </p>
+        </div>
+      </div>
     </header>
   );
 }

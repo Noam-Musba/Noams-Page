@@ -1,10 +1,11 @@
 import sectionStyles from "../styles/Section.module.css";
+import styles from "./Personal.module.css";
 
 function Personal() {
   return (
     <section id="about" className={sectionStyles.section}>
       <h2>A little more about me</h2>
-      <p>
+      <p className={styles.note}>
         Outside of work, I play electric guitar, enjoy computer games, and make
         time for exercise and friends. The quiz below is a small piece of the
         playful original site that I am intentionally carrying forward.
