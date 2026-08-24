@@ -1,7 +1,13 @@
 import layoutStyles from "../styles/Layout.module.css";
+import type { Theme } from "../hooks/useTheme";
 import styles from "./Header.module.css";
 
-function Header() {
+type HeaderProps = {
+  theme: Theme;
+  onThemeChange: (theme: Theme) => void;
+};
+
+function Header({ theme, onThemeChange }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={layoutStyles.container}>
@@ -48,6 +54,17 @@ function Header() {
               </li>
             </ul>
           </nav>
+          <label className={styles.themeControl}>
+            <input
+              className={styles.themeInput}
+              type="checkbox"
+              checked={theme === "dark"}
+              onChange={(event) => {
+                onThemeChange(event.target.checked ? "dark" : "light");
+              }}
+            />
+            Dark mode
+          </label>
         </div>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Software Engineer</p>
