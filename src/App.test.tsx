@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import App from "./App";
@@ -24,6 +24,21 @@ describe("App", () => {
     ).toHaveAttribute("href", "#main-content");
     expect(screen.getByRole("navigation", { name: "Primary" })).toBeVisible();
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
+  });
+
+  it("points every primary navigation link to existing page content", () => {
+    render(<App />);
+
+    const navigation = screen.getByRole("navigation", { name: "Primary" });
+    const unresolvedLinks = within(navigation)
+      .getAllByRole("link")
+      .filter((link) => {
+        const href = link.getAttribute("href");
+
+        return href === null || document.querySelector(href) === null;
+      });
+
+    expect(unresolvedLinks).toEqual([]);
   });
 
   it("renders engineering highlights and an interactive quiz", async () => {
@@ -54,5 +69,15 @@ describe("App", () => {
     });
 
     expect(legacyLink.getAttribute("href")).toMatch(/\/legacy\/$/);
+  });
+
+  it("links to the portfolio source repository", () => {
+    render(<App />);
+
+    expect(
+      screen.getByRole("link", {
+        name: "View source code",
+      }),
+    ).toHaveAttribute("href", "https://github.com/Noam-Musba/Noams-Page");
   });
 });
