@@ -24,7 +24,8 @@
   color: var(--color-text-muted);
 }
 
-.links {
+.links,
+.projectLinks {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem 1.25rem;
@@ -34,32 +35,17 @@
 }
 
 .contactLink,
-.legacyLink {
+.projectLink {
   font-weight: 700;
 }
 
-.legacy {
-  margin: 0;
-}
-
-.legacyLink {
-  display: inline-block;
-  padding: 0.7rem 1rem;
-  color: var(--color-text);
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-small);
-  text-decoration: none;
-}
-
-.legacyLink:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+.projectDescription {
+  margin: 0 0 1rem;
+  color: var(--color-text-muted);
 }
 
 @media (min-width: 48rem) {
   .content {
     grid-template-columns: 1fr auto;
-    align-items: end;
   }
 }

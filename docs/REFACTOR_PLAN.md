@@ -237,7 +237,49 @@ This work is an incremental refactor, not a rewrite. Implement only the PR curre
 
 **Dependencies:** PR 6C.
 
-### PR 8 — Final polish and project narrative
+### PR 8 — Targeted content boundaries and project links
+
+**Purpose:** Make repeated portfolio content easier to maintain without turning every piece of copy into configuration.
+
+**Scope:**
+
+- Move repeated navigation, background, and contact-link data into typed portfolio data.
+- Keep unique narrative copy colocated with the semantic markup that gives it context.
+- Add a clear link to this portfolio's source repository.
+- Apply early destructuring in touched collection-rendering code where it improves readability.
+- Keep external links as standard links so visitors control whether they open a new tab.
+
+**Guardrails:**
+
+- Do not extract every string or build a generic content-rendering system.
+- Do not import production copy into tests solely to share expected text.
+- Do not convert the single experience entry into a collection without a second entry or another concrete need.
+- Do not add routes, reorganize component folders, rename files, or perform function-style churn.
+- Do not include visual redesign or unrelated cleanup.
+
+**Dependencies:** PR 7.
+
+### PR 9 — Lint policy hardening
+
+**Purpose:** Strengthen automated feedback after the application structure and interactions are stable.
+
+**Scope:**
+
+- Promote the React Hooks exhaustive-dependencies rule from a warning to an error.
+- Review the effective ESLint rules against the current source and add only rules that catch concrete defects or accessibility problems.
+- Keep local and continuous-integration validation behavior aligned.
+- Resolve newly surfaced findings explicitly rather than suppressing them.
+
+**Guardrails:**
+
+- Do not add stylistic lint rules already owned by Prettier.
+- Do not add plugins or dependencies without a demonstrated gap in the existing tooling.
+- Do not hide warnings, disable rules broadly, or change source code without understanding the finding.
+- Do not combine lint policy changes with unrelated product or architecture work.
+
+**Dependencies:** PR 8.
+
+### PR 10 — Final polish and project narrative
 
 **Purpose:** Verify the finished portfolio and document the refactoring story.
 
@@ -257,7 +299,7 @@ This work is an incremental refactor, not a rewrite. Implement only the PR curre
 - Do not introduce late architectural changes or new product scope.
 - Any material concern discovered during final validation should be reported rather than hidden or patched with an unexplained workaround.
 
-**Dependencies:** All selected preceding PRs.
+**Dependencies:** All selected preceding PRs, including PR 9.
 
 ## Working agreement
 

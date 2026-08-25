@@ -9,6 +9,34 @@ type EngineeringHighlight = {
   technologies: readonly string[];
 };
 
+type NavigationItem = {
+  label: string;
+  href: string;
+};
+
+type BackgroundItem = {
+  heading: string;
+  description: string;
+};
+
+type ContactLink = {
+  label: string;
+  href: string;
+};
+
+export const navigationItems = [
+  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
+  {
+    label: "Engineering highlights",
+    href: "#engineering-highlights",
+  },
+  { label: "Background", href: "#background" },
+  { label: "About me", href: "#about" },
+  { label: "Quiz", href: "#quiz" },
+  { label: "Contact", href: "#contact" },
+] satisfies readonly NavigationItem[];
+
 export const skillGroups = [
   {
     name: "Languages and runtime",
@@ -58,3 +86,35 @@ export const engineeringHighlights = [
     technologies: ["GitHub Actions", "Node.js", "AWS", "Terraform", "ECS"],
   },
 ] satisfies readonly EngineeringHighlight[];
+
+export const backgroundItems = [
+  {
+    heading: "Education",
+    description:
+      "B.Sc. in Computer Science, Technion – Israel Institute of Technology · 2018–2022",
+  },
+  {
+    heading: "Leadership",
+    description:
+      "Commander Course Instructor, Israeli Air Defense · 2014–2017. Leadership, training, and operational responsibility.",
+  },
+  {
+    heading: "Languages",
+    description: "Hebrew (native) · English (fluent)",
+  },
+] satisfies readonly BackgroundItem[];
+
+export const contactLinks = [
+  {
+    label: "Email Noam",
+    href: "mailto:noammusbajobs@gmail.com",
+  },
+  {
+    label: "Noam on LinkedIn",
+    href: "https://www.linkedin.com/in/noam-musba",
+  },
+  {
+    label: "Noam on GitHub",
+    href: "https://github.com/Noam-Musba",
+  },
+] satisfies readonly ContactLink[];

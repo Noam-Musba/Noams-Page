@@ -7,11 +7,11 @@ function Skills() {
     <section id="skills" className={sectionStyles.section}>
       <h2>Skills</h2>
       <div className={styles.grid}>
-        {skillGroups.map((group) => (
-          <section className={styles.group} key={group.name}>
-            <h3 className={styles.groupHeading}>{group.name}</h3>
+        {skillGroups.map(({ name, skills }) => (
+          <section className={styles.group} key={name}>
+            <h3 className={styles.groupHeading}>{name}</h3>
             <ul className={styles.skillList}>
-              {group.skills.map((skill) => (
+              {skills.map((skill) => (
                 <li className={styles.skill} key={skill}>
                   {skill}
                 </li>
