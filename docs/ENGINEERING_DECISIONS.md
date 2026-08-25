@@ -12,7 +12,7 @@ This document records decisions already agreed for the portfolio refactor. Chang
   3. Skills.
   4. Selected work and projects.
   5. A small personal section.
-  6. Contact, LinkedIn, GitHub, and resume.
+  6. Contact, LinkedIn, GitHub, the portfolio source repository, and resume.
   7. A link to the original 2023 version.
 - Structure, semantics, content, and architecture come before visual polish.
 - Dark mode and the quiz will remain as purposeful playful elements.
@@ -50,6 +50,10 @@ This document records decisions already agreed for the portfolio refactor. Chang
 - Prefer native platform behavior and semantic HTML over custom simulations of controls.
 - Prefer simple, maintainable solutions over abstraction for its own sake.
 - Do not add dependencies without explaining the concrete problem they solve.
+- Keep the portfolio as a single-page experience unless genuine first-class pages emerge.
+- Keep repeated structured content in typed data when that creates a useful editing boundary, while leaving unique narrative copy beside its semantic markup.
+- Keep external destinations as standard same-tab links so visitors choose whether to open a new tab.
+- Retain conventional PascalCase component filenames and the current flat component structure until scale creates a concrete navigation problem.
 
 ## Quality requirements
 
@@ -60,6 +64,7 @@ This document records decisions already agreed for the portfolio refactor. Chang
 - Interactive feedback must not rely on color alone.
 - Reduced-motion preferences must be respected.
 - Tests should protect meaningful interactions and state transitions rather than static implementation details.
+- Tests should not import production copy solely to reuse the same expected strings; assertions should remain capable of catching accidental content changes.
 - Do not pursue abstractions, memoization, code splitting, or test coverage targets without evidence that they add value.
 - Never hide, suppress, or misrepresent warnings and failures merely to make validation pass.
 

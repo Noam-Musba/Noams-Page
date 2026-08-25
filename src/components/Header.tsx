@@ -1,5 +1,6 @@
-import layoutStyles from "../styles/Layout.module.css";
+import { navigationItems } from "../data/portfolio";
 import type { Theme } from "../hooks/useTheme";
+import layoutStyles from "../styles/Layout.module.css";
 import styles from "./Header.module.css";
 
 type HeaderProps = {
@@ -14,44 +15,13 @@ function Header({ theme, onThemeChange }: HeaderProps) {
         <div className={styles.topBar}>
           <nav aria-label="Primary">
             <ul className={styles.navigationList}>
-              <li>
-                <a className={styles.navigationLink} href="#experience">
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a className={styles.navigationLink} href="#skills">
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  className={styles.navigationLink}
-                  href="#engineering-highlights"
-                >
-                  Engineering highlights
-                </a>
-              </li>
-              <li>
-                <a className={styles.navigationLink} href="#background">
-                  Background
-                </a>
-              </li>
-              <li>
-                <a className={styles.navigationLink} href="#about">
-                  About me
-                </a>
-              </li>
-              <li>
-                <a className={styles.navigationLink} href="#quiz">
-                  Quiz
-                </a>
-              </li>
-              <li>
-                <a className={styles.navigationLink} href="#contact">
-                  Contact
-                </a>
-              </li>
+              {navigationItems.map(({ href, label }) => (
+                <li key={href}>
+                  <a className={styles.navigationLink} href={href}>
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
           <label className={styles.themeControl}>
