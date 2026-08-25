@@ -10,6 +10,12 @@ import tseslint from "typescript-eslint";
 export default defineConfig([
   globalIgnores(["dist", "coverage", "public/legacy"]),
   {
+    linterOptions: {
+      reportUnusedDisableDirectives: "error",
+      reportUnusedInlineConfigs: "error",
+    },
+  },
+  {
     files: ["*.{js,mjs}"],
     extends: [js.configs.recommended],
     languageOptions: {
@@ -44,6 +50,9 @@ export default defineConfig([
     rules: {
       ...jsxA11y.configs.recommended.rules,
       "@typescript-eslint/consistent-type-imports": "error",
+      eqeqeq: "error",
+      "no-console": "error",
+      "react-hooks/exhaustive-deps": "error",
       "react/no-unescaped-entities": "off",
       "react/prop-types": "off",
     },

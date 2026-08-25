@@ -65,6 +65,8 @@ This document records decisions already agreed for the portfolio refactor. Chang
 - Reduced-motion preferences must be respected.
 - Tests should protect meaningful interactions and state transitions rather than static implementation details.
 - Tests should not import production copy solely to reuse the same expected strings; assertions should remain capable of catching accidental content changes.
+- Treat missing React Hook dependencies, coercive equality, console calls, unused ESLint disable directives, and unused inline lint configuration as errors.
+- Keep React Compiler-specific diagnostics at their upstream preset severities unless adopting the compiler becomes an explicit project decision.
 - Do not pursue abstractions, memoization, code splitting, or test coverage targets without evidence that they add value.
 - Never hide, suppress, or misrepresent warnings and failures merely to make validation pass.
 
