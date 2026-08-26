@@ -1,3 +1,4 @@
+import profilePhoto from "../assets/profile-pic.jpg";
 import { navigationItems } from "../data/portfolio";
 import type { Theme } from "../hooks/useTheme";
 import layoutStyles from "../styles/Layout.module.css";
@@ -37,16 +38,25 @@ function Header({ theme, onThemeChange }: HeaderProps) {
           </label>
         </div>
         <div className={styles.hero}>
-          <p className={styles.eyebrow}>Software Engineer</p>
-          <h1 className={styles.name}>Noam Musba</h1>
-          <p className={styles.specialty}>
-            Frontend-focused · React · TypeScript
-          </p>
-          <p className={styles.introduction}>
-            Software engineer with three years of experience building product
-            features and owning developer tooling, quality, observability, and
-            deployment automation.
-          </p>
+          <div>
+            <p className={styles.eyebrow}>Software Engineer</p>
+            <h1 className={styles.name}>Noam Musba</h1>
+            <p className={styles.specialty}>
+              Frontend-focused · React · TypeScript
+            </p>
+            <p className={styles.introduction}>
+              Software engineer with three years of experience building product
+              features and owning developer tooling, quality, observability, and
+              deployment automation.
+            </p>
+          </div>
+          <img
+            className={styles.profileImage}
+            src={profilePhoto}
+            alt="Noam Musba smiling"
+            width={720}
+            height={900}
+          />
         </div>
       </div>
     </header>

@@ -56,8 +56,19 @@
 }
 
 .hero {
-  max-width: 56rem;
+  display: grid;
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
   padding-block: clamp(4rem, 11vw, 8rem);
+}
+
+.profileImage {
+  display: block;
+  width: min(100%, 18rem);
+  height: auto;
+  justify-self: center;
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-card);
 }
 
 .eyebrow {
@@ -98,6 +109,15 @@
   }
 
   .themeControl {
+    justify-self: end;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+  }
+
+  .profileImage {
+    width: 20rem;
     justify-self: end;
   }
 }

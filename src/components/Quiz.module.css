@@ -1,4 +1,5 @@
 .quiz {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
   padding-inline: clamp(1.25rem, 4vw, 2.5rem);
   background-color: var(--color-accent-soft);
   border-top: 0;

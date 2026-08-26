@@ -112,7 +112,7 @@ This work is an incremental refactor, not a rewrite. Implement only the PR curre
   3. Skills.
   4. Selected work and projects.
   5. A small personal section.
-  6. Contact, LinkedIn, GitHub, and resume.
+  6. Contact, LinkedIn, GitHub, and the portfolio source repository.
   7. A link to the original 2023 version.
 - Add the professional content supplied by the project owner.
 - Retain dark mode and the quiz as the approved playful features.

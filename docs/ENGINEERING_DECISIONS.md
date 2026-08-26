@@ -12,13 +12,14 @@ This document records decisions already agreed for the portfolio refactor. Chang
   3. Skills.
   4. Selected work and projects.
   5. A small personal section.
-  6. Contact, LinkedIn, GitHub, the portfolio source repository, and resume.
+  6. Contact, LinkedIn, GitHub, and the portfolio source repository.
   7. A link to the original 2023 version.
 - Structure, semantics, content, and architecture come before visual polish.
 - Dark mode and the quiz will remain as purposeful playful elements.
 - The old signup, visitor counter, voting controls, blinking message, Pokémon link, and similar learning-demo features will not appear in the new site.
 - Removed features remain visible in the archived original version.
 - Professional history, project details, links, copy, and approved media will be supplied by the project owner when their PR is ready.
+- A public resume link is deferred until a privacy-safe file or stable public URL is available.
 
 ## Legacy preservation
 
