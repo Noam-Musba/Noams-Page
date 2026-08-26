@@ -25,7 +25,7 @@ The original header hotlinked a guitar image from an external commercial website
 
 The original Pokémon image remains an external reference. Its ownership is unclear, so the asset was not copied into this repository. The external Pokémon destination and GitHub profile links also remain unchanged.
 
-The original tracked JPEG remains in Git history and retains its historical metadata. No Git history rewrite was performed. Only the image deployed in the static archive was re-encoded without the original EXIF metadata.
+The original tracked JPEG remains in Git history and retains its historical metadata. No Git history rewrite was performed. Its unused copy was removed from the active working tree during final polish; only the metadata-free PNG remains in the current deployed files.
 
 ## Preserved limitations
 

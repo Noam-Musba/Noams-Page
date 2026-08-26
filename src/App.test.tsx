@@ -16,6 +16,14 @@ describe("App", () => {
     ).toBeVisible();
   });
 
+  it("shows Noam's portrait in the introduction", () => {
+    render(<App />);
+
+    expect(
+      screen.getByRole("img", { name: "Noam Musba smiling" }),
+    ).toBeVisible();
+  });
+
   it("provides keyboard-friendly page navigation", () => {
     render(<App />);
 
