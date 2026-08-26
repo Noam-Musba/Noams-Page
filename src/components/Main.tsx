@@ -1,9 +1,9 @@
 import Background from "./Background";
 import EngineeringHighlights from "./EngineeringHighlights";
 import Experience from "./Experience";
-import Personal from "./Personal";
 import Skills from "./Skills";
 import Quiz from "./Quiz";
+import SideQuests from "./SideQuests";
 import layoutStyles from "../styles/Layout.module.css";
 
 function Main() {
@@ -13,7 +13,7 @@ function Main() {
       <Skills />
       <EngineeringHighlights />
       <Background />
-      <Personal />
+      <SideQuests />
       <Quiz />
     </main>
   );

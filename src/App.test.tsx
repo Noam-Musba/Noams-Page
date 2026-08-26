@@ -73,10 +73,32 @@ describe("App", () => {
     render(<App />);
 
     const legacyLink = screen.getByRole("link", {
-      name: "See the original 2023 version",
+      name: "See where this started →",
     });
 
     expect(legacyLink.getAttribute("href")).toMatch(/\/legacy\/$/);
+  });
+
+  it("presents four focused Side Quests", () => {
+    render(<App />);
+
+    const sideQuests = screen.getByRole("region", { name: "Side Quests" });
+
+    expect(within(sideQuests).getAllByRole("article")).toHaveLength(4);
+    expect(
+      within(sideQuests).getByRole("heading", { name: "The Original Site" }),
+    ).toBeVisible();
+    expect(
+      within(sideQuests).getByRole("heading", {
+        name: "How well do you know me?",
+      }),
+    ).toBeVisible();
+    expect(
+      within(sideQuests).getByRole("heading", { name: "Off the Clock" }),
+    ).toBeVisible();
+    expect(
+      within(sideQuests).getByRole("heading", { name: "Lately" }),
+    ).toBeVisible();
   });
 
   it("links to the portfolio source repository", () => {
