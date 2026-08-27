@@ -3,8 +3,6 @@ import layoutStyles from "../styles/Layout.module.css";
 import styles from "./Contact.module.css";
 
 function Contact() {
-  const legacyUrl = `${import.meta.env.BASE_URL}legacy/`;
-
   return (
     <footer id="contact" className={styles.footer}>
       <div className={[layoutStyles.container, styles.content].join(" ")}>
@@ -26,7 +24,7 @@ function Contact() {
         <section>
           <h2 className={styles.heading}>About this site</h2>
           <p className={styles.projectDescription}>
-            Explore the project and its evolution.
+            Explore the code behind this portfolio.
           </p>
           <ul className={styles.projectLinks}>
             <li>
@@ -35,11 +33,6 @@ function Contact() {
                 href="https://github.com/Noam-Musba/Noams-Page"
               >
                 View source code
-              </a>
-            </li>
-            <li>
-              <a className={styles.projectLink} href={legacyUrl}>
-                See the original 2023 version
               </a>
             </li>
           </ul>

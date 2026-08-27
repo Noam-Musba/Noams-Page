@@ -1,8 +1,0 @@
-.note {
-  margin: 0;
-  padding: 1.25rem 1.5rem;
-  background-color: var(--color-accent-soft);
-  border-left: 0.25rem solid var(--color-accent);
-  border-radius: 0 var(--radius-medium) var(--radius-medium) 0;
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
-}

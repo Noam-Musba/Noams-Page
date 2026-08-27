@@ -24,6 +24,31 @@ type ContactLink = {
   href: string;
 };
 
+type LatelyItem = {
+  label: string;
+  description: string;
+  icon: string;
+};
+
+type SideQuestAction = {
+  label: string;
+  href: string;
+};
+
+type SideQuestChips = {
+  label: string;
+  items: readonly string[];
+};
+
+export type SideQuestItem = {
+  label: string;
+  title: string;
+  description: string;
+  action?: SideQuestAction;
+  chips?: SideQuestChips;
+  updates?: readonly LatelyItem[];
+};
+
 export const navigationItems = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
@@ -32,7 +57,7 @@ export const navigationItems = [
     href: "#engineering-highlights",
   },
   { label: "Background", href: "#background" },
-  { label: "About me", href: "#about" },
+  { label: "Side quests", href: "#side-quests" },
   { label: "Quiz", href: "#quiz" },
   { label: "Contact", href: "#contact" },
 ] satisfies readonly NavigationItem[];
@@ -118,3 +143,67 @@ export const contactLinks = [
     href: "https://github.com/Noam-Musba",
   },
 ] satisfies readonly ContactLink[];
+
+const latelyItems = [
+  {
+    label: "Gaming",
+    description: "Aska and Slay the Spire 2",
+    icon: "🎮",
+  },
+  {
+    label: "Watching",
+    description:
+      "Anime for the win! Just finished Hell's Paradise, any recommendations?😉",
+    icon: "📺",
+  },
+  {
+    label: "Training",
+    description: "Full-body workout and running, yes on purpose",
+    icon: "💪",
+  },
+  {
+    label: "Learning",
+    description: "Getting the guitar solos right",
+    icon: "🎸",
+  },
+] satisfies readonly LatelyItem[];
+
+export const sideQuestItems = [
+  {
+    label: "Archive",
+    title: "The Original Site",
+    description:
+      "Before the refactor, this was the portfolio I built while learning frontend development. It’s rough, playful, and a pretty good snapshot of where I started.",
+    action: {
+      label: "See where this started →",
+      href: `${import.meta.env.BASE_URL}legacy/`,
+    },
+  },
+  {
+    label: "A tiny challenge",
+    title: "How well do you know me?",
+    description:
+      "A tiny quiz about the person behind the code. No technical interview questions, promise.",
+    action: {
+      label: "Take the quiz →",
+      href: "#quiz",
+    },
+  },
+  {
+    label: "Music",
+    title: "Off the Clock",
+    description:
+      "When I’m not coding, there’s a good chance I’m playing guitar, listening to metal, or trying to get a solo to sound slightly less terrible.🤘🏽",
+    chips: {
+      label: "Music interests",
+      items: ["Guitar", "Metal", "Rock"],
+    },
+  },
+  {
+    label: "Currently",
+    title: "Lately",
+    description:
+      "Things I’m currently spending an unreasonable amount of free time on.",
+    updates: latelyItems,
+  },
+] satisfies readonly SideQuestItem[];
