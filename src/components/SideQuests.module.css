@@ -1,6 +1,6 @@
 .introduction {
   max-width: var(--text-width);
-  margin-bottom: 2rem;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
 }
 
 .heading {
@@ -12,11 +12,11 @@
 
 .kicker {
   display: block;
-  margin-bottom: 0.5rem;
-  color: var(--color-accent);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  color: var(--card-accent, var(--color-accent));
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
@@ -24,48 +24,93 @@
   margin: 0;
 }
 
+.introductionText {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
 .grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .card {
-  padding: 1.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.35rem, 4vw, 2rem);
+  overflow: hidden;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-card);
+}
+
+.card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0.3rem;
+  background-color: var(--card-accent);
+  content: "";
+}
+
+.archiveCard {
+  --card-accent: light-dark(#b84f27, #f5a27f);
+}
+
+.quizCard {
+  --card-accent: light-dark(#7257d8, #b7a6ff);
+}
+
+.musicCard {
+  --card-accent: light-dark(#a23466, #f08db7);
+}
+
+.latelyCard {
+  --card-accent: light-dark(#1b715e, #72cdb7);
 }
 
 .cardHeading {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  letter-spacing: -0.015em;
 }
 
 .cardAction {
-  display: inline-block;
-  margin-top: 1rem;
-  font-weight: 700;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  color: var(--card-accent);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.cardAction:hover {
+  color: var(--color-text);
 }
 
 .chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 1rem 0 0;
-  padding: 0;
+  margin: auto 0 0;
+  padding: 1.5rem 0 0;
   list-style: none;
 }
 
 .chip {
-  padding: 0.2rem 0.6rem;
+  padding: 0.3rem 0.7rem;
+  color: var(--color-text);
   background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
   border-radius: 999px;
   font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .latelyList {
   display: grid;
-  gap: 0.5rem;
-  margin: 1rem 0 0;
+  gap: 0.8rem;
+  margin: 1.5rem 0 0;
   padding: 0;
   color: var(--color-text-muted);
   list-style: none;
@@ -74,10 +119,16 @@
 .latelyItem {
   display: grid;
   grid-template-columns: 1.5rem minmax(0, 1fr);
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .updateLabel {
   color: var(--color-text);
   font-weight: 700;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

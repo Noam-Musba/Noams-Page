@@ -1,5 +1,6 @@
 import { sideQuestItems } from "../data/portfolio";
 import type { SideQuestItem } from "../data/portfolio";
+import type { SideQuestTone } from "../data/portfolio";
 import sectionStyles from "../styles/Section.module.css";
 import styles from "./SideQuests.module.css";
 
@@ -15,7 +16,7 @@ function SideQuests() {
         <h2 className={styles.heading} id="side-quests-heading">
           Side Quests
         </h2>
-        <p className={styles.description}>
+        <p className={[styles.description, styles.introductionText].join(" ")}>
           Software engineering is the main quest. Here’s what’s happening in the
           background.😎
         </p>
@@ -35,10 +36,10 @@ type SideQuestCardProps = {
 };
 
 function SideQuestCard({ sideQuest }: SideQuestCardProps) {
-  const { action, chips, description, label, title, updates } = sideQuest;
+  const { action, chips, description, label, title, tone, updates } = sideQuest;
 
   return (
-    <article className={styles.card}>
+    <article className={[styles.card, cardToneClasses[tone]].join(" ")}>
       <span className={styles.kicker}>{label}</span>
       <h3 className={styles.cardHeading}>{title}</h3>
       <p className={styles.description}>{description}</p>
@@ -72,5 +73,12 @@ function SideQuestCard({ sideQuest }: SideQuestCardProps) {
     </article>
   );
 }
+
+const cardToneClasses = {
+  archive: styles.archiveCard,
+  quiz: styles.quizCard,
+  music: styles.musicCard,
+  lately: styles.latelyCard,
+} satisfies Record<SideQuestTone, string | undefined>;
 
 export default SideQuests;

@@ -40,10 +40,13 @@ type SideQuestChips = {
   items: readonly string[];
 };
 
+export type SideQuestTone = "archive" | "quiz" | "music" | "lately";
+
 export type SideQuestItem = {
   label: string;
   title: string;
   description: string;
+  tone: SideQuestTone;
   action?: SideQuestAction;
   chips?: SideQuestChips;
   updates?: readonly LatelyItem[];
@@ -172,6 +175,7 @@ export const sideQuestItems = [
   {
     label: "Archive",
     title: "The Original Site",
+    tone: "archive",
     description:
       "Before the refactor, this was the portfolio I built while learning frontend development. It’s rough, playful, and a pretty good snapshot of where I started.",
     action: {
@@ -182,6 +186,7 @@ export const sideQuestItems = [
   {
     label: "A tiny challenge",
     title: "How well do you know me?",
+    tone: "quiz",
     description:
       "A tiny quiz about the person behind the code. No technical interview questions, promise.",
     action: {
@@ -192,6 +197,7 @@ export const sideQuestItems = [
   {
     label: "Music",
     title: "Off the Clock",
+    tone: "music",
     description:
       "When I’m not coding, there’s a good chance I’m playing guitar, listening to metal, or trying to get a solo to sound slightly less terrible.🤘🏽",
     chips: {
@@ -202,6 +208,7 @@ export const sideQuestItems = [
   {
     label: "Currently",
     title: "Lately",
+    tone: "lately",
     description:
       "Things I’m currently spending an unreasonable amount of free time on.",
     updates: latelyItems,
