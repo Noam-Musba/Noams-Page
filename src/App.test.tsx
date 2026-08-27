@@ -57,7 +57,17 @@ describe("App", () => {
       screen.getByRole("heading", { name: "Engineering highlights" }),
     ).toBeVisible();
     expect(
+      screen.queryByRole("heading", {
+        level: 4,
+        name: "What is Noam's favorite music genre?",
+      }),
+    ).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Take the quiz →" }));
+
+    expect(
       screen.getByRole("heading", {
+        level: 4,
         name: "What is Noam's favorite music genre?",
       }),
     ).toBeVisible();
@@ -67,6 +77,36 @@ describe("App", () => {
     expect(screen.getByRole("status")).toHaveTextContent(
       "Correct! 10 points added.",
     );
+  });
+
+  it("reveals and closes the quiz with predictable focus", async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const quizButton = screen.getByRole("button", { name: "Take the quiz →" });
+
+    expect(quizButton).toHaveAttribute("aria-expanded", "false");
+    quizButton.focus();
+    await user.keyboard("[Enter]");
+
+    expect(
+      screen.getByRole("heading", {
+        level: 3,
+        name: "Ready? Let’s see how you do.",
+      }),
+    ).toHaveFocus();
+    expect(quizButton).toHaveAttribute("aria-expanded", "true");
+
+    await user.click(screen.getByRole("button", { name: "Close quiz" }));
+
+    expect(
+      screen.queryByRole("heading", {
+        level: 4,
+        name: "What is Noam's favorite music genre?",
+      }),
+    ).not.toBeInTheDocument();
+    expect(quizButton).toHaveFocus();
+    expect(quizButton).toHaveAttribute("aria-expanded", "false");
   });
 
   it("links to the archived original version", () => {
