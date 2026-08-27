@@ -1,10 +1,35 @@
+import { useEffect, useRef, useState } from "react";
+import type { RefObject } from "react";
 import { sideQuestItems } from "../data/portfolio";
-import type { SideQuestItem } from "../data/portfolio";
-import type { SideQuestTone } from "../data/portfolio";
+import type { SideQuestItem, SideQuestTone } from "../data/portfolio";
 import sectionStyles from "../styles/Section.module.css";
+import Quiz from "./Quiz";
 import styles from "./SideQuests.module.css";
 
 function SideQuests() {
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const quizButtonRef = useRef<HTMLButtonElement>(null);
+  const quizHeadingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (isQuizOpen) {
+      quizHeadingRef.current?.focus();
+    }
+  }, [isQuizOpen]);
+
+  const closeQuiz = () => {
+    setIsQuizOpen(false);
+    quizButtonRef.current?.focus();
+  };
+
+  const toggleQuiz = () => {
+    if (isQuizOpen) {
+      closeQuiz();
+    } else {
+      setIsQuizOpen(true);
+    }
+  };
+
   return (
     <section
       id="side-quests"
@@ -24,18 +49,65 @@ function SideQuests() {
 
       <div className={styles.grid}>
         {sideQuestItems.map((sideQuest) => (
-          <SideQuestCard key={sideQuest.title} sideQuest={sideQuest} />
+          <SideQuestCard
+            isQuizOpen={isQuizOpen}
+            key={sideQuest.title}
+            onQuizToggle={toggleQuiz}
+            quizButtonRef={quizButtonRef}
+            sideQuest={sideQuest}
+          />
         ))}
       </div>
+
+      {isQuizOpen && (
+        <section
+          id="side-quest-quiz"
+          className={styles.quizPanel}
+          aria-labelledby="side-quest-quiz-heading"
+        >
+          <div className={styles.quizPanelHeader}>
+            <div>
+              <span className={styles.kicker}>Quick quiz</span>
+              <h3
+                id="side-quest-quiz-heading"
+                className={styles.quizPanelHeading}
+                ref={quizHeadingRef}
+                tabIndex={-1}
+              >
+                Ready? Let’s see how you do.
+              </h3>
+              <p className={styles.description}>
+                Right answer: 10 points. Wrong answer: minus 2.
+              </p>
+            </div>
+            <button
+              type="button"
+              className={styles.closeButton}
+              onClick={closeQuiz}
+            >
+              Close quiz
+            </button>
+          </div>
+          <Quiz />
+        </section>
+      )}
     </section>
   );
 }
 
 type SideQuestCardProps = {
   sideQuest: SideQuestItem;
+  isQuizOpen: boolean;
+  quizButtonRef: RefObject<HTMLButtonElement | null>;
+  onQuizToggle: () => void;
 };
 
-function SideQuestCard({ sideQuest }: SideQuestCardProps) {
+function SideQuestCard({
+  sideQuest,
+  isQuizOpen,
+  quizButtonRef,
+  onQuizToggle,
+}: SideQuestCardProps) {
   const { action, chips, description, label, title, tone, updates } = sideQuest;
 
   return (
@@ -43,10 +115,22 @@ function SideQuestCard({ sideQuest }: SideQuestCardProps) {
       <span className={styles.kicker}>{label}</span>
       <h3 className={styles.cardHeading}>{title}</h3>
       <p className={styles.description}>{description}</p>
-      {action && (
+      {action?.kind === "link" && (
         <a className={styles.cardAction} href={action.href}>
           {action.label}
         </a>
+      )}
+      {action?.kind === "quiz" && (
+        <button
+          ref={quizButtonRef}
+          type="button"
+          className={styles.cardAction}
+          aria-controls="side-quest-quiz"
+          aria-expanded={isQuizOpen}
+          onClick={onQuizToggle}
+        >
+          {isQuizOpen ? action.expandedLabel : action.label}
+        </button>
       )}
       {chips && (
         <ul className={styles.chips} aria-label={chips.label}>

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { RefObject } from "react";
 import { quizQuestions } from "../data/quiz";
-import sectionStyles from "../styles/Section.module.css";
 import styles from "./Quiz.module.css";
 
 export default function Quiz() {
@@ -79,12 +78,7 @@ export default function Quiz() {
   const perfectScore = quizQuestions.length * CORRECT_ANSWER_POINTS;
 
   return (
-    <section
-      id="quiz"
-      className={[sectionStyles.section, styles.quiz].join(" ")}
-    >
-      <h2>Come try my quiz and check your score!</h2>
-      <p>On a right answer: receive 10 points; on a wrong answer: lose 2.</p>
+    <div className={styles.quiz}>
       {currentQuestion ? (
         <QuizQuestionCard
           headingRef={headingRef}
@@ -103,7 +97,7 @@ export default function Quiz() {
           score={score}
         />
       )}
-    </section>
+    </div>
   );
 }
 
@@ -136,9 +130,9 @@ function QuizQuestionCard({
         <p className={styles.progress}>
           Question {questionIndex + 1} of {quizQuestions.length}
         </p>
-        <h3 className={styles.questionHeading} ref={headingRef} tabIndex={-1}>
+        <h4 className={styles.questionHeading} ref={headingRef} tabIndex={-1}>
           {questionText}
-        </h3>
+        </h4>
       </div>
       <div className={styles.options}>
         {options.map((option, optionIndex) => (
@@ -243,9 +237,9 @@ function QuizResults({
 }: QuizResultsProps) {
   return (
     <div className={styles.completed}>
-      <h3 className={styles.completedHeading} ref={headingRef} tabIndex={-1}>
+      <h4 className={styles.completedHeading} ref={headingRef} tabIndex={-1}>
         Quiz completed!
-      </h3>
+      </h4>
       <p className={styles.completedText}>Your final score is: {score}</p>
       <p className={styles.completedText}>
         {score === perfectScore
