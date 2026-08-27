@@ -78,10 +78,15 @@
 .cardAction {
   align-self: flex-start;
   margin-top: auto;
-  padding-top: 1.5rem;
+  padding: 1.5rem 0 0;
   color: var(--card-accent);
+  background-color: transparent;
+  border: 0;
   font-weight: 800;
   line-height: 1.4;
+  text-align: left;
+  text-decoration: underline 0.1em;
+  text-underline-offset: 0.2em;
 }
 
 .cardAction:hover {
@@ -127,8 +132,51 @@
   font-weight: 700;
 }
 
+.quizPanel {
+  margin-top: 1.25rem;
+  padding: clamp(1.35rem, 4vw, 2rem);
+  background-color: var(--color-accent-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+}
+
+.quizPanelHeader {
+  display: grid;
+  gap: 1rem;
+}
+
+.quizPanelHeading {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  letter-spacing: -0.015em;
+}
+
+.closeButton {
+  align-self: start;
+  justify-self: start;
+  padding: 0.55rem 0.8rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  font-weight: 700;
+}
+
+.closeButton:hover {
+  border-color: var(--color-accent);
+}
+
 @media (min-width: 48rem) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quizPanelHeader {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .closeButton {
+    justify-self: end;
   }
 }

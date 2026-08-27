@@ -30,10 +30,19 @@ type LatelyItem = {
   icon: string;
 };
 
-type SideQuestAction = {
+type SideQuestLinkAction = {
+  kind: "link";
   label: string;
   href: string;
 };
+
+type SideQuestQuizAction = {
+  kind: "quiz";
+  label: string;
+  expandedLabel: string;
+};
+
+type SideQuestAction = SideQuestLinkAction | SideQuestQuizAction;
 
 type SideQuestChips = {
   label: string;
@@ -61,7 +70,6 @@ export const navigationItems = [
   },
   { label: "Background", href: "#background" },
   { label: "Side quests", href: "#side-quests" },
-  { label: "Quiz", href: "#quiz" },
   { label: "Contact", href: "#contact" },
 ] satisfies readonly NavigationItem[];
 
@@ -179,6 +187,7 @@ export const sideQuestItems = [
     description:
       "Before the refactor, this was the portfolio I built while learning frontend development. It’s rough, playful, and a pretty good snapshot of where I started.",
     action: {
+      kind: "link",
       label: "See where this started →",
       href: `${import.meta.env.BASE_URL}legacy/`,
     },
@@ -190,8 +199,9 @@ export const sideQuestItems = [
     description:
       "A tiny quiz about the person behind the code. No technical interview questions, promise.",
     action: {
+      kind: "quiz",
       label: "Take the quiz →",
-      href: "#quiz",
+      expandedLabel: "Hide the quiz ↑",
     },
   },
   {
