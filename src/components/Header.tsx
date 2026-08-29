@@ -1,8 +1,9 @@
 import profilePhoto from "../assets/profile-pic.jpg";
-import { navigationItems } from "../data/portfolio";
 import type { Theme } from "../hooks/useTheme";
 import layoutStyles from "../styles/Layout.module.css";
 import styles from "./Header.module.css";
+import Navigation from "./Navigation";
+import ThemeToggle from "./ThemeToggle";
 
 type HeaderProps = {
   theme: Theme;
@@ -14,28 +15,8 @@ function Header({ theme, onThemeChange }: HeaderProps) {
     <header className={styles.header}>
       <div className={layoutStyles.container}>
         <div className={styles.topBar}>
-          <nav aria-label="Primary">
-            <ul className={styles.navigationList}>
-              {navigationItems.map(({ href, label }) => (
-                <li key={href}>
-                  <a className={styles.navigationLink} href={href}>
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <label className={styles.themeControl}>
-            <input
-              className={styles.themeInput}
-              type="checkbox"
-              checked={theme === "dark"}
-              onChange={(event) => {
-                onThemeChange(event.target.checked ? "dark" : "light");
-              }}
-            />
-            Dark mode
-          </label>
+          <Navigation />
+          <ThemeToggle theme={theme} onChange={onThemeChange} />
         </div>
         <div className={styles.hero}>
           <div>
