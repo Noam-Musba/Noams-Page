@@ -5,6 +5,12 @@ import App from "./App";
 
 const STORAGE_KEY = "noam-portfolio-theme";
 
+function getThemeControl(targetTheme: "light" | "dark") {
+  return screen.getByRole("button", {
+    name: `Switch to ${targetTheme} mode`,
+  });
+}
+
 function mockSystemTheme(theme: "light" | "dark") {
   let matches = theme === "dark";
   let changeListener: ((event: MediaQueryListEvent) => void) | undefined;
@@ -63,7 +69,7 @@ describe("theme", () => {
 
     render(<App />);
 
-    expect(screen.getByRole("checkbox", { name: "Dark mode" })).toBeChecked();
+    expect(getThemeControl("light")).toBeVisible();
     expect(document.documentElement).toHaveAttribute("data-theme", "dark");
     expect(document.querySelector('meta[name="theme-color"]')).toHaveAttribute(
       "content",
@@ -77,9 +83,7 @@ describe("theme", () => {
 
     render(<App />);
 
-    expect(
-      screen.getByRole("checkbox", { name: "Dark mode" }),
-    ).not.toBeChecked();
+    expect(getThemeControl("dark")).toBeVisible();
     expect(document.documentElement).toHaveAttribute("data-theme", "light");
   });
 
@@ -87,15 +91,13 @@ describe("theme", () => {
     const systemTheme = mockSystemTheme("light");
     render(<App />);
 
-    expect(
-      screen.getByRole("checkbox", { name: "Dark mode" }),
-    ).not.toBeChecked();
+    expect(getThemeControl("dark")).toBeVisible();
 
     act(() => {
       systemTheme.changeTo("dark");
     });
 
-    expect(screen.getByRole("checkbox", { name: "Dark mode" })).toBeChecked();
+    expect(getThemeControl("light")).toBeVisible();
     expect(document.documentElement).toHaveAttribute("data-theme", "dark");
   });
 
@@ -103,14 +105,14 @@ describe("theme", () => {
     const systemTheme = mockSystemTheme("light");
     render(<App />);
 
-    fireEvent.click(screen.getByRole("checkbox", { name: "Dark mode" }));
+    fireEvent.click(getThemeControl("dark"));
 
     act(() => {
       systemTheme.changeTo("dark");
       systemTheme.changeTo("light");
     });
 
-    expect(screen.getByRole("checkbox", { name: "Dark mode" })).toBeChecked();
+    expect(getThemeControl("light")).toBeVisible();
     expect(document.documentElement).toHaveAttribute("data-theme", "dark");
     expect(localStorage.getItem(STORAGE_KEY)).toBe("dark");
   });
@@ -120,18 +122,18 @@ describe("theme", () => {
     mockSystemTheme("light");
     render(<App />);
 
-    const themeControl = screen.getByRole("checkbox", { name: "Dark mode" });
+    const themeControl = getThemeControl("dark");
     themeControl.focus();
 
     await user.keyboard("[Space]");
 
-    expect(themeControl).toBeChecked();
+    expect(themeControl).toHaveAccessibleName("Switch to light mode");
     expect(localStorage.getItem(STORAGE_KEY)).toBe("dark");
     expect(document.documentElement).toHaveAttribute("data-theme", "dark");
 
     await user.keyboard("[Space]");
 
-    expect(themeControl).not.toBeChecked();
+    expect(themeControl).toHaveAccessibleName("Switch to dark mode");
     expect(localStorage.getItem(STORAGE_KEY)).toBe("light");
     expect(document.documentElement).toHaveAttribute("data-theme", "light");
   });

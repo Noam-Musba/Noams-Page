@@ -49,6 +49,38 @@ describe("App", () => {
     expect(unresolvedLinks).toEqual([]);
   });
 
+  it("toggles the navigation and restores focus on Escape", async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const menuButton = screen.getByRole("button", {
+      name: "Open navigation menu",
+    });
+
+    expect(menuButton).toHaveAttribute("aria-controls", "primary-navigation");
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+
+    await user.click(menuButton);
+
+    expect(
+      screen.getByRole("button", { name: "Close navigation menu" }),
+    ).toHaveAttribute("aria-expanded", "true");
+
+    const navigation = screen.getByRole("navigation", { name: "Primary" });
+    const skillsLink = within(navigation).getByRole("link", { name: "Skills" });
+
+    await user.click(skillsLink);
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+
+    await user.click(menuButton);
+    skillsLink.focus();
+    await user.keyboard("{Escape}");
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    expect(menuButton).toHaveFocus();
+  });
+
   it("renders engineering highlights and an interactive quiz", async () => {
     const user = userEvent.setup();
     render(<App />);

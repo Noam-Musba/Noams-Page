@@ -1,0 +1,84 @@
+.menuButton {
+  grid-area: menu;
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.75rem;
+  color: var(--color-text);
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.menuButton:hover {
+  color: var(--color-accent-hover);
+  border-color: var(--color-accent);
+}
+
+.menuIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.navigation {
+  display: none;
+  grid-area: navigation;
+}
+
+.navigation[data-open] {
+  display: block;
+}
+
+.list {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: block;
+  padding: 0.65rem 0.75rem;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-small);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-accent-hover);
+  background-color: var(--color-accent-soft);
+}
+
+@media (min-width: 60rem) {
+  .menuButton {
+    display: none;
+  }
+
+  .navigation {
+    display: block;
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+  }
+
+  .link {
+    display: inline-block;
+    padding: 0.45rem 0.4rem;
+  }
+}

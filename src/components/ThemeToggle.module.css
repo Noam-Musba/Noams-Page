@@ -1,0 +1,26 @@
+.button {
+  display: inline-flex;
+  grid-area: theme;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.75rem;
+  color: var(--color-text-muted);
+  background-color: transparent;
+  border: 0;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.button:hover {
+  color: var(--color-accent-hover);
+  background-color: var(--color-accent-soft);
+}
+
+.icon {
+  width: 1rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  text-align: center;
+}
