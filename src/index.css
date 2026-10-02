@@ -27,6 +27,8 @@
   --content-width: 72rem;
   --text-width: 46rem;
   --page-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --sticky-header-height: 4.3125rem;
+  --anchor-scroll-gap: 1rem;
   --radius-small: 0.6rem;
   --radius-medium: 1rem;
 }
@@ -46,6 +48,9 @@
 }
 
 html {
+  scroll-padding-top: calc(
+    var(--sticky-header-height) + var(--anchor-scroll-gap)
+  );
   background-color: var(--color-background);
 }
 

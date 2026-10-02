@@ -1,0 +1,61 @@
+.heroSection {
+  background-color: var(--color-surface);
+}
+
+.hero {
+  display: grid;
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  padding-block: clamp(4rem, 11vw, 8rem);
+}
+
+.profileImage {
+  display: block;
+  width: min(100%, 18rem);
+  height: auto;
+  justify-self: center;
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-card);
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+.specialty {
+  margin: 1.5rem 0 0;
+  color: var(--color-text);
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  font-weight: 700;
+}
+
+.introduction {
+  max-width: var(--text-width);
+  margin: 1rem 0 0;
+  color: var(--color-text-muted);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+@media (min-width: 60rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+  }
+
+  .profileImage {
+    width: 20rem;
+    justify-self: end;
+  }
+}
