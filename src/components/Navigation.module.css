@@ -62,6 +62,17 @@
   background-color: var(--color-accent-soft);
 }
 
+@media (width < 60rem) {
+  .navigation[data-open] {
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline: calc(-1 * var(--page-gutter));
+    padding: 0.5rem var(--page-gutter) 1rem;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
 @media (min-width: 60rem) {
   .menuButton {
     display: none;

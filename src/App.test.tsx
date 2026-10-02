@@ -27,10 +27,14 @@ describe("App", () => {
   it("provides keyboard-friendly page navigation", () => {
     render(<App />);
 
+    const header = screen.getByRole("banner");
+
     expect(
       screen.getByRole("link", { name: "Skip to main content" }),
     ).toHaveAttribute("href", "#main-content");
-    expect(screen.getByRole("navigation", { name: "Primary" })).toBeVisible();
+    expect(
+      within(header).getByRole("navigation", { name: "Primary" }),
+    ).toBeVisible();
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
   });
 
